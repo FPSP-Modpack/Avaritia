@@ -90,8 +90,8 @@ public class Compressor {
         @Override
         public void apply(){
 
-            for(Object obj : ExtremeCraftingManager.getInstance().getRecipeList()){
-                if(obj instanceof IRecipe){
+            for(Object obj : CompressorManager.getRecipes()){
+                if(obj instanceof CompressorRecipe){
                     CompressorRecipe craft = (CompressorRecipe)obj;
                     if(craft.getOutput().isItemEqual(remove)) {
                         recipe = craft;

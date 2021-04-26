@@ -5,6 +5,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import fox.spiteful.avaritia.Config;
 import fox.spiteful.avaritia.blocks.LudicrousBlocks;
 import fox.spiteful.avaritia.compat.Compat;
+import fox.spiteful.avaritia.compat.botania.alfheim.Alfheim;
 import fox.spiteful.avaritia.compat.nei.NotEnough;
 import fox.spiteful.avaritia.crafting.ExtremeCraftingManager;
 import fox.spiteful.avaritia.crafting.ExtremeShapedRecipe;
@@ -42,6 +43,9 @@ public class Tsundere {
         SubTileCheaty.lexicon = new LudicrousLexicon("asgardandelion", BotaniaAPI.categoryGenerationFlowers);
         SubTileCheaty.lexicon.addPage(BotaniaAPI.internalHandler.textPage("avaritia.lexicon.asgardandelion.0"));
         SubTileCheaty.lexicon.setIcon(cheaty);
+        
+        //if(Config.alfheim)
+        	//Alfheim.vacationTime();
 
         ExtremeCraftingManager.getInstance().addRecipe(cheaty, new Object[]{
                 "   III   ",

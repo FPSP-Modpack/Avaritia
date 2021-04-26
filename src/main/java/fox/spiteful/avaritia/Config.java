@@ -12,6 +12,7 @@ public class Config {
     public static boolean bedrockBreaker = true;
     public static boolean boringFood = false;
     public static boolean fractured = false;
+    public static boolean fast = true;
 
     public static boolean thaumic = true;
     public static boolean sc2 = true;
@@ -32,7 +33,7 @@ public class Config {
     public static boolean te = true;
     public static boolean numanuma = true;
     public static boolean metallurgy = true;
-    public static boolean darksteel = true;
+    public static boolean enderio = true;
     public static boolean forestry = true;
     public static boolean bees = false;
     public static boolean ee3 = true;
@@ -40,13 +41,16 @@ public class Config {
     public static boolean witch = true;
     public static boolean rotisserie = true;
 
+    //public static boolean alfheim = false;
+    //public static int alfheimID;
+
     public static boolean copper = true;
     public static boolean tin = true;
     public static boolean silver = true;
     public static boolean lead = true;
     public static boolean steel = true;
     public static boolean nickel = true;
-    public static boolean enderium = true;
+    public static boolean ultimateBalance = true;
 
     public static int modifier = 0;
     public static int multiplier = 0;
@@ -62,6 +66,7 @@ public class Config {
             bedrockBreaker = conf.get("general", "Break Bedrock", bedrockBreaker, "Disable if you don't want the World Breaker to break unbreakable blocks").getBoolean(true);
             boringFood = conf.get("general", "Boring Food", boringFood, "Enable to keep the Ultimate Stew and Cosmic Meatballs from grabbing more ingredients").getBoolean(false);
             fractured = conf.get("general", "Fractured Ores", fractured, "Enable if you don't have Rotarycraft installed and want some buggy fractured ores").getBoolean(false);
+            fast = conf.get("general", "Gotta Go Fast", fast, "Disable if the Infinity Boots' speed boost is too ridiculous").getBoolean(true);
 
             conf.addCustomCategoryComment("compatibility", "Disable to stop compatibility with that particular mod. Will not use the mod in recipes or add new items for that mod.");
             thaumic = conf.get("compatibility", "Thaumcraft", true).getBoolean(true);
@@ -83,12 +88,15 @@ public class Config {
             te = conf.get("compatibility", "Thermal Expansion", true).getBoolean(true);
             numanuma = conf.get("compatibility", "Pneumaticraft", true).getBoolean(true);
             metallurgy = conf.get("compatibility", "Metallurgy", true).getBoolean(true);
+            enderio = conf.get("compatibility", "EnderIO", true).getBoolean(true);
             forestry = conf.get("compatibility", "Forestry", true).getBoolean(true);
             bees = conf.get("compatibility", "Forestry Bees", false).getBoolean(false);
             ee3 = conf.get("compatibility", "Equivalent Exchange 3", true).getBoolean(true);
             extracells = conf.get("compatibility", "Extra Cells", true).getBoolean(true);
             witch = conf.get("compatibility", "Witchery", true).getBoolean(true);
             rotisserie = conf.get("compatibility", "Rotarycraft", true).getBoolean(true);
+
+            //alfheim = conf.get("compatibility", "Alfheim", false).getBoolean(false);
 
             conf.addCustomCategoryComment("materials", "Disable to stop using that material in recipes. Useful if a mod adds unobtainable placeholder ores.");
             copper = conf.get("materials", "Copper", true).getBoolean(true);
@@ -97,8 +105,7 @@ public class Config {
             lead = conf.get("materials", "Lead", true).getBoolean(true);
             nickel = conf.get("materials", "Nickel/Ferrous", true).getBoolean(true);
             steel = conf.get("materials", "Steel", true).getBoolean(true);
-            enderium = conf.get("materials", "Enderium", true).getBoolean(true);
-            darksteel = conf.get("compatibility", "DarkSteel", true).getBoolean(true);
+            ultimateBalance = conf.get("materials", "Clay", true).getBoolean(true);
 
             modifier = conf.get("balance!", "Cost Modifier", 0, "Added to the existing modifier to make prices more expensive or cheaper. Can be negative.").getInt(0);
             multiplier = conf.get("balance!", "Cost Multiplier", 0, "Added to the existing multiplier to make prices more expensive or cheaper. Can be negative.").getInt(0);
