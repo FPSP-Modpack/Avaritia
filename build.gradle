@@ -50,6 +50,8 @@ targetCompatibility = JavaVersion.VERSION_1_8
 minecraft {
     version = "${config.minecraft.version}-${config.forge.version}-${config.minecraft.version}"
     runDir = "eclipse"
+    replace "@VERSION@", project.version
+    replaceIn "Avaritia.java"
 }
 
 idea {

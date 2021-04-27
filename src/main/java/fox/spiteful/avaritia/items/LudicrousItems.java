@@ -26,7 +26,9 @@ public class LudicrousItems {
      * 4 = Neutronium Ingot,
      * 5 = Infinity Catalyst,
      * 6 = Infinity Ingot,
-     * 7 = Record Fragment
+     * 7 = Record Fragment,
+     * 8 = Star Fuel,
+     * 9 = Neutronium Gear
      */
     public static Item resource;
 
@@ -40,7 +42,8 @@ public class LudicrousItems {
      * 6 = Tin,
      * 7 = Lead,
      * 8 = Silver,
-     * 9 = Nickel
+     * 9 = Nickel,
+     * 10 = Clay
      */
     public static Item singularity;
 
