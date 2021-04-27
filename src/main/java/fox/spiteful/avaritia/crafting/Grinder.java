@@ -224,11 +224,11 @@ public class Grinder {
                 'D', new ItemStack(Items.nether_star),
                 'W', "logWood");
 
-        CompressorManager.addRecipe(new ItemStack(LudicrousItems.singularity, 1, 0), 20460, new ItemStack(Blocks.iron_block));
-        CompressorManager.addRecipe(new ItemStack(LudicrousItems.singularity, 1, 1), 6390, new ItemStack(Blocks.gold_block));
-        CompressorManager.addRecipe(new ItemStack(LudicrousItems.singularity, 1, 2), 30420, new ItemStack(Blocks.lapis_block));
-        CompressorManager.addRecipe(new ItemStack(LudicrousItems.singularity, 1, 3), 22815, new ItemStack(Blocks.redstone_block));
-        CompressorManager.addRecipe(new ItemStack(LudicrousItems.singularity, 1, 4), 2240, new ItemStack(Blocks.quartz_block));
+        CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 0), 20460, "blockIron", true);
+        CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 1), 6390, "blockGold", true);
+        CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 2), 30420, "blockLapis", true);
+        CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 3), 22815, "blockRedstone", true);
+        CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 4), 2240, "blockQuartz", true);
 
         if(Config.endStone)
             ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(new ItemStack(LudicrousItems.endest_pearl),
@@ -293,23 +293,23 @@ public class Grinder {
     	}
 
         if(Config.copper && !OreDictionary.getOres("blockCopper").isEmpty()){
-            CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 5), 24250, "blockCopper");
+            CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 5), 24250, "blockCopper", true);
             catalyst.getInput().add(new ItemStack(LudicrousItems.singularity, 1, 5));
         }
         if(Config.tin && !OreDictionary.getOres("blockTin").isEmpty()){
-            CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 6), 20640, "blockTin");
+            CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 6), 20640, "blockTin", true);
             catalyst.getInput().add(new ItemStack(LudicrousItems.singularity, 1, 6));
         }
         if(Config.lead && !OreDictionary.getOres("blockLead").isEmpty()){
-            CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 7), 5670, "blockLead");
+            CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 7), 5670, "blockLead", true);
             catalyst.getInput().add(new ItemStack(LudicrousItems.singularity, 1, 7));
         }
         if(Config.silver && !OreDictionary.getOres("blockSilver").isEmpty()){
-            CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 8), 3110, "blockSilver");
+            CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 8), 3110, "blockSilver", true);
             catalyst.getInput().add(new ItemStack(LudicrousItems.singularity, 1, 8));
         }
         if(Config.nickel && !OreDictionary.getOres("blockNickel").isEmpty()){
-            CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 9), 1950, "blockNickel");
+            CompressorManager.addOreRecipe(new ItemStack(LudicrousItems.singularity, 1, 9), 1950, "blockNickel", true);
             catalyst.getInput().add(new ItemStack(LudicrousItems.singularity, 1, 9));
         }
         if(Config.te && !OreDictionary.getOres("blockEnderium").isEmpty()){

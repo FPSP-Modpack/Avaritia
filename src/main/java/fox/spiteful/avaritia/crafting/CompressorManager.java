@@ -16,6 +16,14 @@ public class CompressorManager {
         recipes.add(new CompressOreRecipe(output, amount, ore));
     }
 
+    public static void addRecipe(ItemStack output, int amount, ItemStack input, boolean exact){
+        recipes.add(new CompressorRecipe(output, amount, input, exact));
+    }
+
+    public static void addOreRecipe(ItemStack output, int amount, String ore, boolean exact){
+        recipes.add(new CompressOreRecipe(output, amount, ore, exact));
+    }
+
     public static ItemStack getOutput(ItemStack input){
         for(CompressorRecipe recipe : recipes){
             if(recipe.validInput(input))
