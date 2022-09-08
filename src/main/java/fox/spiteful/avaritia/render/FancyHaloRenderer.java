@@ -1,10 +1,6 @@
 package fox.spiteful.avaritia.render;
 
 import java.util.Random;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
@@ -13,6 +9,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
 
 public class FancyHaloRenderer implements IItemRenderer {
 	
@@ -86,12 +84,7 @@ public class FancyHaloRenderer implements IItemRenderer {
 	            float cb = (float)(haloColour & 255) / 255.0F;
 	            GL11.glColor4f(cr, cg, cb, ca);
 				
-				t.startDrawingQuads();
-				t.addVertexWithUV(0-spread, 0-spread, 0, halo.getMinU(), halo.getMinV());
-				t.addVertexWithUV(0-spread, 16+spread, 0, halo.getMinU(), halo.getMaxV());
-				t.addVertexWithUV(16+spread, 16+spread, 0, halo.getMaxU(), halo.getMaxV());
-				t.addVertexWithUV(16+spread, 0-spread, 0, halo.getMaxU(), halo.getMinV());
-				t.draw();
+				RenderItem.getInstance().renderIcon(-spread, -spread, halo, 16 + spread * 2, 16 + spread * 2);
 			}
 			
 			if (renderPulse) {
