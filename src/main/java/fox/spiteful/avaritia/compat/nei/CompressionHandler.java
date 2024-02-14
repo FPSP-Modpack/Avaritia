@@ -26,7 +26,6 @@ public class CompressionHandler extends TemplateRecipeHandler
     @SideOnly(Side.CLIENT)
     private FontRenderer fontRender;
 
-    @SideOnly(Side.CLIENT)
     public CompressionHandler(){
         super();
         fontRender = Minecraft.getMinecraft().fontRenderer;
@@ -138,7 +137,6 @@ public class CompressionHandler extends TemplateRecipeHandler
         return "avaritia:textures/gui/compressor.png";
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
     public void drawForeground(int recipe){
         super.drawForeground(recipe);

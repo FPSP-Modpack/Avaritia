@@ -5,8 +5,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.research.ResearchItem;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class LudicrousResearchItem extends ResearchItem {
 
@@ -22,12 +20,10 @@ public class LudicrousResearchItem extends ResearchItem {
         super(par1, x, tags, y, z, par5, icon);
     }
 
-    @SideOnly(Side.CLIENT)
     public String getName() {
         return StatCollector.translateToLocal("avaritia.research_name." + key);
     }
 
-    @SideOnly(Side.CLIENT)
     public String getText() {
         return "[AV] " + StatCollector.translateToLocal("avaritia.research_text." + key);
     }

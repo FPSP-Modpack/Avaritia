@@ -46,7 +46,6 @@ public class BlockNeutronCollector extends BlockContainer {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side){
         if(side == 1)
             return top;
@@ -61,7 +60,6 @@ public class BlockNeutronCollector extends BlockContainer {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public IIcon getIcon (int side, int metadata)
     {
         if(side == 1)

@@ -41,7 +41,6 @@ public class ItemFracturedOre extends Item {
 		this.setHasSubtypes(true);
 	}
 
-	@SideOnly(Side.CLIENT)
 	@Override
     public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list)
     {

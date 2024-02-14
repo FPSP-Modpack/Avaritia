@@ -3,8 +3,6 @@ package fox.spiteful.avaritia.render;
 import java.util.ArrayList;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
 import fox.spiteful.avaritia.Lumberjack;
@@ -27,7 +25,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
-@SideOnly(Side.CLIENT)
 public class ModelArmorInfinity extends ModelBiped {
 
     public static final ModelArmorInfinity armorModel = new ModelArmorInfinity(1.0f);

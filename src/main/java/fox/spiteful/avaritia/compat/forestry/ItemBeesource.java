@@ -19,10 +19,7 @@ public class ItemBeesource extends Item implements IHaloRenderItem {
 
     private static final String[] types = new String[]{"infinity_drop", "dust"};
 
-    @SideOnly(Side.CLIENT)
     public IIcon[] icons;
-
-    @SideOnly(Side.CLIENT)
     public IIcon halo;
 
     public ItemBeesource(){
@@ -43,7 +40,6 @@ public class ItemBeesource extends Item implements IHaloRenderItem {
         halo = ir.registerIcon("avaritia:halo");
     }
 
-    @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int dam) {
         return this.icons[dam % icons.length];
     }
@@ -54,7 +50,6 @@ public class ItemBeesource extends Item implements IHaloRenderItem {
         return super.getUnlocalizedName() + "." + types[i];
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
         for (int j = 0; j < types.length; ++j) {
@@ -76,33 +71,28 @@ public class ItemBeesource extends Item implements IHaloRenderItem {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public boolean drawHalo(ItemStack stack) {
         int meta = stack.getItemDamage();
         return (meta == 0);
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public IIcon getHaloTexture(ItemStack stack) {
         return halo;
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public int getHaloSize(ItemStack stack) {
         return 10;
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public boolean drawPulseEffect(ItemStack stack) {
         int meta = stack.getItemDamage();
         return meta == 0;
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public int getHaloColour(ItemStack stack) {
         return 0xFF000000;
     }

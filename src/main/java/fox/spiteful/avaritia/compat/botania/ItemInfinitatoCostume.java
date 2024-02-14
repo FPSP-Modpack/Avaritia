@@ -33,11 +33,9 @@ public class ItemInfinitatoCostume extends Item {
 
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List list) {}
 
-    @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int dam) {
         return this.icons[dam % icons.length];
     }

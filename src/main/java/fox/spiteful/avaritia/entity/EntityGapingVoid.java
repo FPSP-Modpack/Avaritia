@@ -3,8 +3,6 @@ package fox.spiteful.avaritia.entity;
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 import fox.spiteful.avaritia.Lumberjack;
 import net.minecraft.block.Block;
@@ -230,7 +228,6 @@ public class EntityGapingVoid extends Entity {
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
     public float getShadowSize()
     {
         return 0.0F;

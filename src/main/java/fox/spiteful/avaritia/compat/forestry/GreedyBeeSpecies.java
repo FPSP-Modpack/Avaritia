@@ -1,8 +1,6 @@
 package fox.spiteful.avaritia.compat.forestry;
 
 import com.mojang.authlib.GameProfile;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import forestry.api.apiculture.*;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
@@ -88,7 +86,6 @@ public enum GreedyBeeSpecies implements IAlleleBeeSpecies, IIconProvider {
         INFINITE.addProduct(new ItemStack(LudicrousItems.combs, 1, 1), 0.15F);
     }
 
-    @SideOnly(Side.CLIENT)
     private IIcon[][] icons;
 
     @Override
@@ -337,13 +334,11 @@ public enum GreedyBeeSpecies implements IAlleleBeeSpecies, IIconProvider {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public IIconProvider getIconProvider() {
         return this;
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public IIcon getIcon(EnumBeeType type, int renderPass) {
         return icons[type.ordinal()][Math.min(renderPass, 2)];
     }
@@ -366,7 +361,6 @@ public enum GreedyBeeSpecies implements IAlleleBeeSpecies, IIconProvider {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public IIcon getIcon(short texUID) {
         return icons[0][0];
     }

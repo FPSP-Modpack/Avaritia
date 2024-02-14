@@ -13,8 +13,6 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import fox.spiteful.avaritia.crafting.ExtremeShapedOreRecipe;
 import fox.spiteful.avaritia.crafting.ExtremeShapedRecipe;
 import fox.spiteful.avaritia.crafting.ExtremeShapelessRecipe;
@@ -43,7 +41,6 @@ public class PageLudicrousRecipe extends PageRecipe {
 		LexiconRecipeMappings.map(this.recipe.getRecipeOutput(), entry, index);
 	}
 	
-	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderRecipe(IGuiLexiconEntry gui, int mx, int my) {
 		oreDictRecipe = shapelessRecipe = false;
@@ -86,7 +83,6 @@ public class PageLudicrousRecipe extends PageRecipe {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
 	public void updateScreen() {
 		/*if(ticksElapsed % 20 == 0) {
 			recipeAt++;
@@ -98,7 +94,6 @@ public class PageLudicrousRecipe extends PageRecipe {
 	}
 
 	@SuppressWarnings("unchecked")
-	@SideOnly(Side.CLIENT)
 	public void renderCraftingRecipe(IGuiLexiconEntry gui, IRecipe recipe) {
 		if (recipe instanceof ExtremeShapedRecipe) {
 			ExtremeShapedRecipe shaped = (ExtremeShapedRecipe) recipe;
@@ -189,7 +184,6 @@ public class PageLudicrousRecipe extends PageRecipe {
 		renderItemAtLudicrousGridPos(gui, 4, -1, recipe.getRecipeOutput(), false);
 	}
 
-	@SideOnly(Side.CLIENT)
 	public void renderItemAtLudicrousGridPos(IGuiLexiconEntry gui, int x, int y, ItemStack stack, boolean accountForContainer) {
 		if(stack == null || stack.getItem() == null)
 			return;

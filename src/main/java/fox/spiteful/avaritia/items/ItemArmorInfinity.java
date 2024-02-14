@@ -211,13 +211,11 @@ public class ItemArmorInfinity extends ItemArmor implements ICosmicRenderItem, I
     }
     
 	@Override
-	@SideOnly(Side.CLIENT)
 	public IIcon getMaskTexture(ItemStack stack, EntityPlayer player) {
 		return this.cosmicMask;
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
 	public float getMaskMultiplier(ItemStack stack, EntityPlayer player) {
 		return 1.0f;
 	}
@@ -235,7 +233,6 @@ public class ItemArmorInfinity extends ItemArmor implements ICosmicRenderItem, I
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack par1ItemStack, int pass)
     {
         return false;

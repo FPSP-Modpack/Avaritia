@@ -47,7 +47,6 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
         super.setDamage(stack, 0);
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
         ItemStack pick = new ItemStack(this);
@@ -91,7 +90,6 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
         return itemIcon;
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIconIndex(ItemStack stack){
         return getIcon(stack, 0);
@@ -171,7 +169,6 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack par1ItemStack, int pass)
     {
         return false;

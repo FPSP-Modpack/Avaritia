@@ -110,13 +110,11 @@ public class ItemSwordInfinity extends ItemSword implements ICosmicRenderItem {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public IIcon getMaskTexture(ItemStack stack, EntityPlayer player) {
         return cosmicMask;
     }
     
     @Override
-	@SideOnly(Side.CLIENT)
 	public float getMaskMultiplier(ItemStack stack, EntityPlayer player) {
 		return 1.0f;
 	}
@@ -137,7 +135,6 @@ public class ItemSwordInfinity extends ItemSword implements ICosmicRenderItem {
     	return super.getIcon(stack, pass);
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
     public boolean requiresMultipleRenderPasses()
     {
@@ -157,7 +154,6 @@ public class ItemSwordInfinity extends ItemSword implements ICosmicRenderItem {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack par1ItemStack, int pass)
     {
         return false;

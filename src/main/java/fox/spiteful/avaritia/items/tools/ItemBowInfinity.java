@@ -190,7 +190,6 @@ public class ItemBowInfinity extends Item implements ICosmicRenderItem {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
     {
     	if (usingItem != null)
@@ -216,20 +215,17 @@ public class ItemBowInfinity extends Item implements ICosmicRenderItem {
     }
     
     @Override
-    @SideOnly(Side.CLIENT) 
     public IIcon getIcon(ItemStack stack, int pass) {
     	return super.getIcon(stack, pass);
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public boolean isFull3D()
     {
         return true;
     }
 
 	@Override
-	@SideOnly(Side.CLIENT)
 	public IIcon getMaskTexture(ItemStack stack, EntityPlayer player) {
 		int frame = -1;
 		if (player != null) {
@@ -246,7 +242,6 @@ public class ItemBowInfinity extends Item implements ICosmicRenderItem {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
 	public float getMaskMultiplier(ItemStack stack, EntityPlayer player) {
 		return 1.0f;
 	}

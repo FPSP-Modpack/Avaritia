@@ -19,7 +19,6 @@ public class ItemComb extends Item {
     private static final int[] mainColors = new int[]{0xB6B6B6, 0xEF57FF};
     private static final int[] otherColors = new int[]{0x757575, 0x06005C};
 
-    @SideOnly(Side.CLIENT)
     private IIcon secondIcon;
 
     public ItemComb(){
@@ -29,7 +28,6 @@ public class ItemComb extends Item {
         setUnlocalizedName("avaritia.comb");
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
         for (int j = 0; j < types.length; ++j) {
@@ -51,7 +49,6 @@ public class ItemComb extends Item {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public boolean requiresMultipleRenderPasses()
     {
         return true;
@@ -64,7 +61,6 @@ public class ItemComb extends Item {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public int getColorFromItemStack(ItemStack stack, int pass)
     {
 

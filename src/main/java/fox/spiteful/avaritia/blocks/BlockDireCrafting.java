@@ -43,7 +43,6 @@ public class BlockDireCrafting extends BlockContainer {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public IIcon getIcon (int side, int metadata)
     {
         if (side == 0)

@@ -9,8 +9,6 @@ package fox.spiteful.avaritia.items.tools;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import fox.spiteful.avaritia.Avaritia;
 import fox.spiteful.avaritia.Lumberjack;
 import fox.spiteful.avaritia.entity.EntityImmortalItem;
@@ -116,7 +114,6 @@ public class ItemAxeInfinity extends ItemAxe {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack par1ItemStack, int pass)
     {
         return false;

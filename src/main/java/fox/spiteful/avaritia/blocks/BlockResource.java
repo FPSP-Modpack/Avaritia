@@ -32,7 +32,7 @@ public class BlockResource extends Block {
         setCreativeTab(Avaritia.tab);
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
     public IIcon getIcon(int side, int metadata)
     {
         return this.icons[metadata % types.length];
@@ -43,8 +43,7 @@ public class BlockResource extends Block {
         return metadata;
     }
 
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs tab, List list){
+    public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list){
         for(int x = 0;x < types.length;x++)
             list.add(new ItemStack(item, 1, x));
     }

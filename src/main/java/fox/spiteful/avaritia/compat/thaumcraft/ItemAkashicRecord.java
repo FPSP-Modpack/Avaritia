@@ -1,7 +1,5 @@
 package fox.spiteful.avaritia.compat.thaumcraft;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import fox.spiteful.avaritia.Avaritia;
 import fox.spiteful.avaritia.compat.Compat;
 import net.minecraft.creativetab.CreativeTabs;
@@ -43,7 +41,6 @@ public class ItemAkashicRecord extends Item {
         return stack;
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
         super.getSubItems(item, tab, list);

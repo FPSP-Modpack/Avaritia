@@ -81,7 +81,6 @@ public class ItemShovelInfinity extends ItemSpade {
         return itemIcon;
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIconIndex(ItemStack stack){
         return getIcon(stack, 0);
@@ -146,7 +145,6 @@ public class ItemShovelInfinity extends ItemSpade {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack par1ItemStack, int pass)
     {
         return false;
