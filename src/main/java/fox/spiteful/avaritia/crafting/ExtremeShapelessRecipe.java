@@ -14,9 +14,9 @@ public class ExtremeShapelessRecipe implements IRecipe
     /** Is the ItemStack that you get when craft the recipe. */
     private final ItemStack recipeOutput;
     /** Is a List of ItemStack that composes the recipe. */
-    public final List recipeItems;
+    public final List<ItemStack> recipeItems;
 
-    public ExtremeShapelessRecipe(ItemStack result, List ingredients)
+    public ExtremeShapelessRecipe(ItemStack result, List<ItemStack> ingredients)
     {
         this.recipeOutput = result;
         this.recipeItems = ingredients;
@@ -32,7 +32,7 @@ public class ExtremeShapelessRecipe implements IRecipe
      */
     public boolean matches(InventoryCrafting matrix, World world)
     {
-        ArrayList arraylist = new ArrayList(this.recipeItems);
+        List<ItemStack> arraylist = new ArrayList<>(this.recipeItems);
 
         for (int i = 0; i < 9; ++i)
         {
@@ -43,11 +43,11 @@ public class ExtremeShapelessRecipe implements IRecipe
                 if (itemstack != null)
                 {
                     boolean flag = false;
-                    Iterator iterator = arraylist.iterator();
+                    Iterator<ItemStack> iterator = arraylist.iterator();
 
                     while (iterator.hasNext())
                     {
-                        ItemStack itemstack1 = (ItemStack)iterator.next();
+                        ItemStack itemstack1 = iterator.next();
 
                         if (itemstack.getItem() == itemstack1.getItem() && (itemstack1.getItemDamage() == 32767 || itemstack.getItemDamage() == itemstack1.getItemDamage()))
                         {

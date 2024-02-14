@@ -80,7 +80,6 @@ public class ItemArmorInfinity extends ItemArmor implements ICosmicRenderItem, I
         super.setDamage(stack, 0);
     }
 
-    @SuppressWarnings("rawtypes")
 	@Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
     {
@@ -90,7 +89,7 @@ public class ItemArmorInfinity extends ItemArmor implements ICosmicRenderItem, I
         }
         else if(armorType == 1){
             //player.capabilities.allowFlying = true;
-            Collection effects = player.getActivePotionEffects();
+            Collection<PotionEffect> effects = player.getActivePotionEffects();
             if(effects.size() > 0){
                 ArrayList<Potion> bad = new ArrayList<Potion>();
                 for(Object effect : effects){
@@ -129,11 +128,10 @@ public class ItemArmorInfinity extends ItemArmor implements ICosmicRenderItem, I
         return model;
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-    public Multimap getAttributeModifiers(ItemStack stack)
+    public Multimap<String, AttributeModifier> getAttributeModifiers(ItemStack stack)
     {
-        Multimap multimap = super.getAttributeModifiers(stack);
+        Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(stack);
         //if(armorType == 3)
         //    multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Armor modifier", 0.7, 1));
         return multimap;
@@ -161,8 +159,8 @@ public class ItemArmorInfinity extends ItemArmor implements ICosmicRenderItem, I
         return 20;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+    @Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean par4) {
         if(Compat.thaumic)
             list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("tc.visdiscount") + ": " + this.getVisDiscount(stack, player, (Aspect)null) + "%");
         if(Compat.botan) {

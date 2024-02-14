@@ -76,7 +76,6 @@ public class EntityGapingVoid extends Entity {
 		dataWatcher.setObjectWatched(12);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
@@ -141,7 +140,7 @@ public class EntityGapingVoid extends Entity {
 		// om nom nom
 		double nomrange = radius*0.95;
 		AxisAlignedBB nomzone = AxisAlignedBB.getBoundingBox(this.posX - nomrange, this.posY - nomrange, this.posZ - nomrange, this.posX + nomrange, this.posY + nomrange, this.posZ + nomrange);
-		List<Entity> nommed = this.worldObj.selectEntitiesWithinAABB(EntityLivingBase.class, nomzone, nomlector);
+		List<EntityLivingBase> nommed = this.worldObj.selectEntitiesWithinAABB(EntityLivingBase.class, nomzone, nomlector);
 		
 		for (Entity nommee : nommed) {
 			if (nommee != this) {

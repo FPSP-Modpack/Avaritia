@@ -51,10 +51,9 @@ public class ItemSingularity extends Item implements IHaloRenderItem {
         return "item.singularity_" + types[i];
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
 	@SideOnly(Side.CLIENT)
     @Override
-    public void getSubItems(Item item, CreativeTabs tab, List list) {
+    public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
         for (int j = 0; j < types.length; ++j) {
             list.add(new ItemStack(item, 1, j));
         }

@@ -43,10 +43,9 @@ public class ItemAkashicRecord extends Item {
         return stack;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
     @SideOnly(Side.CLIENT)
     @Override
-    public void getSubItems(Item item, CreativeTabs tab, List list) {
+    public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
         super.getSubItems(item, tab, list);
         try {
             Item wand = Compat.getItem("Thaumcraft", "WandCasting");

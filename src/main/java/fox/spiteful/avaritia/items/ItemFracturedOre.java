@@ -41,10 +41,9 @@ public class ItemFracturedOre extends Item {
 		this.setHasSubtypes(true);
 	}
 
-	@SuppressWarnings({ "rawtypes"})
 	@SideOnly(Side.CLIENT)
 	@Override
-    public void getSubItems(Item item, CreativeTabs tab, List list)
+    public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list)
     {
 		// for debug purposes only - don't want these cluttering up the tab.
         /*for (ItemStack stack : emulatedOres) {

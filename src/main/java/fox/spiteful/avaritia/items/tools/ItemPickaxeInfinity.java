@@ -49,7 +49,7 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void getSubItems(Item item, CreativeTabs tab, List list) {
+    public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
         ItemStack pick = new ItemStack(this);
         pick.addEnchantment(Enchantment.fortune, 10);
         list.add(pick);

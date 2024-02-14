@@ -52,9 +52,8 @@ public class ItemResource extends Item implements IHaloRenderItem {
         halo[1] = ir.registerIcon("avaritia:halonoise");
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-    public void addInformation(ItemStack item, EntityPlayer player, List tooltip, boolean wut) {
+    public void addInformation(ItemStack item, EntityPlayer player, List<String> tooltip, boolean wut) {
 
     	int meta = item.getItemDamage();
     	if (meta != 0 && meta < 8) {
@@ -73,10 +72,9 @@ public class ItemResource extends Item implements IHaloRenderItem {
         return super.getUnlocalizedName() + "." + types[i];
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
 	@SideOnly(Side.CLIENT)
     @Override
-    public void getSubItems(Item item, CreativeTabs tab, List list) {
+    public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
         for (int j = 0; j < types.length; ++j) {
             list.add(new ItemStack(item, 1, j));
         }

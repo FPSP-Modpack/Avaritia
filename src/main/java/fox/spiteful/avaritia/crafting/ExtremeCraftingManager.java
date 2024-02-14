@@ -18,7 +18,7 @@ public class ExtremeCraftingManager {
     /** The static instance of this class */
     private static final ExtremeCraftingManager instance = new ExtremeCraftingManager();
     /** A list of all the recipes added */
-    private List recipes = new ArrayList();
+    private List<IRecipe> recipes = new ArrayList<>();
 
     /**
      * Returns the static instance of this class
@@ -59,9 +59,9 @@ public class ExtremeCraftingManager {
             }
         }
 
-        HashMap hashmap;
+        Map<Character, ItemStack> hashmap;
 
-        for (hashmap = new HashMap(); i < recipe.length; i += 2)
+        for (hashmap = new HashMap<>(); i < recipe.length; i += 2)
         {
             Character character = (Character)recipe[i];
             ItemStack itemstack1 = null;
@@ -142,7 +142,7 @@ public class ExtremeCraftingManager {
 
     public ExtremeShapelessRecipe addShapelessRecipe(ItemStack result, Object ... ingredients)
     {
-        ArrayList arraylist = new ArrayList();
+        List<ItemStack> arraylist = new ArrayList<>();
         Object[] aobject = ingredients;
         int i = ingredients.length;
 
@@ -226,7 +226,7 @@ public class ExtremeCraftingManager {
         {
             for (j = 0; j < this.recipes.size(); ++j)
             {
-                IRecipe irecipe = (IRecipe)this.recipes.get(j);
+                IRecipe irecipe = this.recipes.get(j);
 
                 if (irecipe.matches(matrix, world))
                 {
@@ -241,7 +241,7 @@ public class ExtremeCraftingManager {
     /**
      * returns the List<> of all recipes
      */
-    public List getRecipeList()
+    public List<IRecipe> getRecipeList()
     {
         return this.recipes;
     }

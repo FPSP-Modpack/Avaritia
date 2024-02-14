@@ -43,7 +43,7 @@ import java.util.Map;
 public class ItemAxeInfinity extends ItemAxe {
 
     private static final ToolMaterial opAxe = EnumHelper.addToolMaterial("INFINITY_PICKAXE", 32, 9999, 9999F, 20.0F, 200);
-    private static Map<Integer, List<BlockSwapper>> blockSwappers = new HashMap();
+    private static Map<Integer, List<BlockSwapper>> blockSwappers = new HashMap<>();
 
     public ItemAxeInfinity(){
         super(opAxe);
@@ -100,7 +100,7 @@ public class ItemAxeInfinity extends ItemAxe {
         if(player.isSneaking())
             return;
         ChunkCoordinates coords = new ChunkCoordinates(x, y, z);
-        addBlockSwapper(player.worldObj, player, stack, coords, coords, 32, false, true, new ArrayList());
+        addBlockSwapper(player.worldObj, player, stack, coords, coords, 32, false, true, new ArrayList<>());
     }
 
     @Override
@@ -128,7 +128,7 @@ public class ItemAxeInfinity extends ItemAxe {
             int dim = event.world.provider.dimensionId;
             if(blockSwappers.containsKey(dim)) {
                 List<BlockSwapper> swappers = blockSwappers.get(dim);
-                List<BlockSwapper> swappersSafe = new ArrayList(swappers);
+                List<BlockSwapper> swappersSafe = new ArrayList<>(swappers);
                 swappers.clear();
                 for(BlockSwapper s : swappersSafe)
                     if(s != null)
@@ -141,7 +141,7 @@ public class ItemAxeInfinity extends ItemAxe {
         BlockSwapper swapper = new BlockSwapper(world, player, stack, origCoords, coords, steps, leaves, force, posChecked);
         int dim = world.provider.dimensionId;
         if(!blockSwappers.containsKey(dim))
-            blockSwappers.put(dim, new ArrayList());
+            blockSwappers.put(dim, new ArrayList<>());
         blockSwappers.get(dim).add(swapper);
         return swapper;
     }

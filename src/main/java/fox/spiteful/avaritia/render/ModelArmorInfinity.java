@@ -93,12 +93,11 @@ public class ModelArmorInfinity extends ModelBiped {
 		return this;
 	}
 	
-	@SuppressWarnings("rawtypes")
 	public void rebuildWings() {
 		
 		// remove the old items from the list so that the new ones don't just stack up
 		if (this.bipedBody.childModels == null) {
-			this.bipedBody.childModels = new ArrayList();
+			this.bipedBody.childModels = new ArrayList<>();
 		}
 		if (this.bipedLeftWing != null) {
 			this.bipedBody.childModels.remove(this.bipedLeftWing);
@@ -417,7 +416,6 @@ public class ModelArmorInfinity extends ModelBiped {
 			this.expand = expand;
 		}
 		
-		@SuppressWarnings("rawtypes")
 		public void rebuild(IIcon icon, IIcon wingicon) {
 			int ox = MathHelper.floor_float(icon.getMinU() * itempagewidth);
 			int oy = MathHelper.floor_float(icon.getMinV() * itempageheight);
@@ -461,7 +459,7 @@ public class ModelArmorInfinity extends ModelBiped {
 				int oyw = MathHelper.floor_float(wingicon.getMinV() * itempageheight);
 		        
 		        if (this.bipedBody.childModels == null) {
-					this.bipedBody.childModels = new ArrayList();
+					this.bipedBody.childModels = new ArrayList<>();
 				}
 				if (this.bipedLeftWing != null) {
 					this.bipedBody.childModels.remove(this.bipedLeftWing);

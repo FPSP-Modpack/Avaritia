@@ -130,7 +130,7 @@ public class CompressionHandler extends TemplateRecipeHandler
     private boolean safeOre(CompressorRecipe recipe){
         if(!(recipe instanceof CompressOreRecipe))
             return true;
-        return !((ArrayList)recipe.getIngredient()).isEmpty();
+        return !((ArrayList<?>)recipe.getIngredient()).isEmpty();
     }
 
     @Override
