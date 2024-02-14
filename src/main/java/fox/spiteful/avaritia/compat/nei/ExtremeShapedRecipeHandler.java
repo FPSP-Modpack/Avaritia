@@ -1,5 +1,16 @@
 package fox.spiteful.avaritia.compat.nei;
 
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.lwjgl.opengl.GL11;
+
+import codechicken.lib.gui.GuiDraw;
+import codechicken.nei.NEIServerUtils;
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.RecipeInfo;
+import codechicken.nei.recipe.ShapedRecipeHandler;
 import fox.spiteful.avaritia.crafting.ExtremeCraftingManager;
 import fox.spiteful.avaritia.crafting.ExtremeShapedOreRecipe;
 import fox.spiteful.avaritia.crafting.ExtremeShapedRecipe;
@@ -9,16 +20,6 @@ import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.StatCollector;
-import org.lwjgl.opengl.GL11;
-import codechicken.lib.gui.GuiDraw;
-import codechicken.nei.NEIServerUtils;
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.RecipeInfo;
-import codechicken.nei.recipe.ShapedRecipeHandler;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ExtremeShapedRecipeHandler extends ShapedRecipeHandler
 {
@@ -46,15 +47,7 @@ public class ExtremeShapedRecipeHandler extends ShapedRecipeHandler
                     {
                         continue;
                     }
-                    int ex = 3 + x * 18;
-                    int wy = 3 + y * 18;
-                    if(wy == 129){
-                        if(ex == 3 || ex == 129)
-                            ex -= 1;
-                        else if(ex == 21 || ex == 147)
-                            ex += 1;
-                    }
-                    PositionedStack stack = new PositionedStack(items[y * width + x], ex, wy);
+                    PositionedStack stack = new PositionedStack(items[y * width + x], 3 + x * 18, 3 + y * 18);
                     stack.setMaxSize(1);
                     this.ingredients.add(stack);
                 }
@@ -124,7 +117,7 @@ public class ExtremeShapedRecipeHandler extends ShapedRecipeHandler
     @Override
     public void loadCraftingRecipes(ItemStack result) {
         for (IRecipe irecipe : (List<IRecipe>) ExtremeCraftingManager.getInstance().getRecipeList()) {
-            if (NEIServerUtils.areStacksSameTypeCrafting(irecipe.getRecipeOutput(), result)) {
+            if (NEIServerUtils.areStacksSameTypeCraftingWithNBT(irecipe.getRecipeOutput(), result)) {
                 CachedExtremeRecipe recipe = null;
                 if (irecipe instanceof ExtremeShapedRecipe)
                     recipe = new CachedExtremeRecipe((ExtremeShapedRecipe) irecipe);

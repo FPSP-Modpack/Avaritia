@@ -63,17 +63,6 @@ public class Compat {
     }
 
     public static void compatify(){
-        if(nei){
-            try
-            {
-                NotEnough.items();
-            }
-            catch(Throwable e)
-            {
-                Lumberjack.log(Level.INFO, e, "Avaritia had Too Many Items.");
-            }
-        }
-
         if(tweak){
             try
             {

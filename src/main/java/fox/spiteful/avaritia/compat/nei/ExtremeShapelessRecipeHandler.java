@@ -1,6 +1,15 @@
 package fox.spiteful.avaritia.compat.nei;
 
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.lwjgl.opengl.GL11;
+
 import codechicken.lib.gui.GuiDraw;
+import codechicken.nei.NEIServerUtils;
+import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.RecipeInfo;
 import codechicken.nei.recipe.ShapelessRecipeHandler;
 import fox.spiteful.avaritia.crafting.ExtremeCraftingManager;
@@ -10,16 +19,8 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import codechicken.nei.NEIServerUtils;
-import codechicken.nei.PositionedStack;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import org.lwjgl.opengl.GL11;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ExtremeShapelessRecipeHandler extends ShapelessRecipeHandler{
 
@@ -46,15 +47,7 @@ public class ExtremeShapelessRecipeHandler extends ShapelessRecipeHandler{
         public void setIngredients(List<?> items) {
             ingredients.clear();
             for (int ingred = 0; ingred < items.size(); ingred++) {
-                int ex = 3 + (ingred % 9) * 18;
-                int wy = 3 + (ingred / 9) * 18;
-                if(wy == 129){
-                    if(ex == 3 || ex == 129)
-                        ex -= 1;
-                    else if(ex == 21 || ex == 147)
-                        ex += 1;
-                }
-                PositionedStack stack = new PositionedStack(items.get(ingred), ex, wy);
+                PositionedStack stack = new PositionedStack(items.get(ingred), 3 + (ingred % 9) * 18, 3 + (ingred / 9) * 18);
                 stack.setMaxSize(1);
                 ingredients.add(stack);
             }
@@ -107,7 +100,7 @@ public class ExtremeShapelessRecipeHandler extends ShapelessRecipeHandler{
     public void loadCraftingRecipes(ItemStack result) {
         List<IRecipe> allrecipes = ExtremeCraftingManager.getInstance().getRecipeList();
         for (IRecipe irecipe : allrecipes) {
-            if (NEIServerUtils.areStacksSameTypeCrafting(irecipe.getRecipeOutput(), result)) {
+            if (NEIServerUtils.areStacksSameTypeCraftingWithNBT(irecipe.getRecipeOutput(), result)) {
                 CachedExtremeShapelessRecipe recipe = null;
                 if (irecipe instanceof ExtremeShapelessRecipe)
                     recipe = shapelessRecipe((ExtremeShapelessRecipe) irecipe);
