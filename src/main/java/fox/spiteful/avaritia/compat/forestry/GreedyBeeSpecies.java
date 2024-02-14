@@ -1,11 +1,29 @@
 package fox.spiteful.avaritia.compat.forestry;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
 import com.mojang.authlib.GameProfile;
-import forestry.api.apiculture.*;
+
+import forestry.api.apiculture.BeeManager;
+import forestry.api.apiculture.EnumBeeChromosome;
+import forestry.api.apiculture.EnumBeeType;
+import forestry.api.apiculture.IAlleleBeeSpecies;
+import forestry.api.apiculture.IBeeGenome;
+import forestry.api.apiculture.IBeeHousing;
+import forestry.api.apiculture.IBeeRoot;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.core.IIconProvider;
-import forestry.api.genetics.*;
+import forestry.api.genetics.AlleleManager;
+import forestry.api.genetics.IAllele;
+import forestry.api.genetics.IClassification;
+import forestry.api.genetics.IIndividual;
+import forestry.api.genetics.IMutation;
 import fox.spiteful.avaritia.items.LudicrousItems;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemStack;
@@ -13,9 +31,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
-
-import java.awt.*;
-import java.util.*;
 
 public enum GreedyBeeSpecies implements IAlleleBeeSpecies, IIconProvider {
 
@@ -35,7 +50,6 @@ public enum GreedyBeeSpecies implements IAlleleBeeSpecies, IIconProvider {
     private String authority;
     private EnumTemperature temperature = EnumTemperature.NORMAL;
     private EnumHumidity humidity = EnumHumidity.NORMAL;
-    private boolean hasEffect;
     private boolean isSecret;
     private boolean isCounted = true;
     private boolean fancy;
@@ -180,16 +194,6 @@ public enum GreedyBeeSpecies implements IAlleleBeeSpecies, IIconProvider {
     @Override
     public HashMap<ItemStack, Float> getSpecialtyChances() {
         return specialties;
-    }
-
-    @Override
-    public HashMap<ItemStack, Integer> getProducts() {
-        return legacyProducts;
-    }
-
-    @Override
-    public HashMap<ItemStack, Integer> getSpecialty() {
-        return legacySpecialties;
     }
 
     @Override

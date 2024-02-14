@@ -1,5 +1,9 @@
 package fox.spiteful.avaritia.compat.forestry;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import forestry.api.recipes.RecipeManagers;
@@ -45,15 +49,19 @@ public class Ranger {
         Allele.prepareGenes();
         GreedyBeeSpecies.buzz();
         ExpensiveMutation.mutate();
+        
+        final float centrifugeChanceA = 0.16f;
+        final Map<ItemStack, Float> products = new HashMap<>();
+        products.put(new ItemStack(Items.dye, 1, 1), centrifugeChanceA);
+        products.put(new ItemStack(Items.dye, 1, 2), centrifugeChanceA);
+        products.put(new ItemStack(Items.dye, 1, 4), centrifugeChanceA);
+        products.put(new ItemStack(Items.dye, 1, 5), centrifugeChanceA);
+        products.put(new ItemStack(Items.dye, 1, 11), centrifugeChanceA);
+        products.put(new ItemStack(Items.dye, 1, 14), centrifugeChanceA);
 
-        RecipeManagers.centrifugeManager.addRecipe(20, new ItemStack(LudicrousItems.combs, 1, 1),
-                new ItemStack[]{new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 2),
-                        new ItemStack(Items.dye, 1, 4), new ItemStack(Items.dye, 1, 5),
-                        new ItemStack(Items.dye, 1, 11), new ItemStack(Items.dye, 1, 14)},
-                new int[]{16, 16, 16, 16, 16, 16});
+        RecipeManagers.centrifugeManager.addRecipe(20, new ItemStack(LudicrousItems.combs, 1, 1), products);
 
-        RecipeManagers.centrifugeManager.addRecipe(20, new ItemStack(LudicrousItems.combs, 1, 0),
-                new ItemStack(LudicrousItems.beesource, 1, 1));
+        RecipeManagers.centrifugeManager.addRecipe(20, new ItemStack(LudicrousItems.combs, 1, 0), Collections.singletonMap(new ItemStack(LudicrousItems.beesource, 1, 1), 1.0f));
 
         Grinder.catalyst.getInput().add(new ItemStack(panel, 1, 6));
         Grinder.catalyst.getInput().add(new ItemStack(LudicrousItems.beesource, 1, 0));

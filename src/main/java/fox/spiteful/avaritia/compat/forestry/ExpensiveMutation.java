@@ -1,21 +1,27 @@
 package fox.spiteful.avaritia.compat.forestry;
 
-import forestry.api.apiculture.*;
-import forestry.api.genetics.IAllele;
-import forestry.api.genetics.IGenome;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
+import forestry.api.apiculture.BeeManager;
+import forestry.api.apiculture.IAlleleBeeSpecies;
+import forestry.api.apiculture.IBeeGenome;
+import forestry.api.apiculture.IBeeHousing;
+import forestry.api.apiculture.IBeeModifier;
+import forestry.api.apiculture.IBeeMutation;
+import forestry.api.apiculture.IBeeRoot;
+import forestry.api.genetics.IAllele;
+import forestry.api.genetics.IAlleleSpecies;
+
 public class ExpensiveMutation implements IBeeMutation {
 
-    private IAllele mom;
-    private IAllele dad;
+    private IAlleleBeeSpecies mom;
+    private IAlleleBeeSpecies dad;
     private IAllele[] template;
     private boolean secret = false;
     private float baseChance;
 
-    public ExpensiveMutation(IAllele first, IAllele second, IAllele[] result, float chance){
+    public ExpensiveMutation(IAlleleBeeSpecies first, IAlleleBeeSpecies second, IAllele[] result, float chance){
         mom = first;
         dad = second;
         template = result;
@@ -24,8 +30,8 @@ public class ExpensiveMutation implements IBeeMutation {
     }
 
     public static void mutate(){
-        IAllele first;
-        IAllele second;
+        IAlleleBeeSpecies first;
+        IAlleleBeeSpecies second;
         if(Ranger.extra)
             first = Allele.getExtraSpecies("Relic");
         else
@@ -70,12 +76,12 @@ public class ExpensiveMutation implements IBeeMutation {
     }
 
     @Override
-    public IAllele getAllele0() {
+    public IAlleleSpecies getAllele0() {
         return mom;
     }
 
     @Override
-    public IAllele getAllele1() {
+    public IAlleleSpecies getAllele1() {
         return dad;
     }
 
@@ -112,34 +118,16 @@ public class ExpensiveMutation implements IBeeMutation {
     }
 
     @Override
-    public float getChance(IBeeHousing housing, IAllele allele0, IAllele allele1, IGenome genome0, IGenome genome1) {
-        float finalChance = 0f;
-        float chance = this.baseChance * 1f;
-
-        if(isPartner(allele0) && isPartner(allele1)){
-            finalChance = Math.round(chance
-                    * housing.getMutationModifier((IBeeGenome)genome0,
-                    (IBeeGenome)genome1, chance)
-                    * BeeManager.beeRoot.getBeekeepingMode(housing.getWorld())
-                    .getMutationModifier((IBeeGenome) genome0,
-                            (IBeeGenome) genome1, chance));
-        }
-
-        return finalChance;
-    }
-
-    @Override
     public float getChance(IBeeHousing housing, IAlleleBeeSpecies allele0, IAlleleBeeSpecies allele1, IBeeGenome genome0, IBeeGenome genome1) {
         float finalChance = 0f;
         float chance = this.baseChance * 1f;
 
         if(isPartner(allele0) && isPartner(allele1)){
-            finalChance = Math.round(chance
-                    * housing.getMutationModifier(genome0,
-                    genome1, chance)
-                    * BeeManager.beeRoot.getBeekeepingMode(housing.getWorld())
-                    .getMutationModifier(genome0,
-                            genome1, chance));
+            float housingModifier = 1.0f;
+            for(IBeeModifier modifier : housing.getBeeModifiers()) {
+                housingModifier *= modifier.getMutationModifier(genome0, genome1, chance);
+            }
+            finalChance = Math.round(chance * housingModifier * BeeManager.beeRoot.getBeekeepingMode(housing.getWorld()).getBeeModifier().getMutationModifier(genome0, genome1, chance));
         }
 
         return finalChance;
