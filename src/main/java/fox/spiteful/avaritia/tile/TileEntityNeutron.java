@@ -75,11 +75,13 @@ public class TileEntityNeutron extends TileLudicrous implements IInventory {
                 ItemStack take = neutrons.splitStack(decrement);
                 if(neutrons.stackSize <= 0)
                     neutrons = null;
+                this.markDirty();
                 return take;
             }
             else {
                 ItemStack take = neutrons;
                 neutrons = null;
+                this.markDirty();
                 return take;
             }
         }

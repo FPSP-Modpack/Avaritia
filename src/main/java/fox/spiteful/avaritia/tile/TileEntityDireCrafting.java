@@ -75,9 +75,11 @@ public class TileEntityDireCrafting extends TileLudicrous implements IInventory,
                 if(result.stackSize <= decrement) {
                     ItemStack craft = result;
                     result = null;
+                    this.markDirty();
                     return craft;
                 }
                 ItemStack split = result.splitStack(decrement);
+                this.markDirty();
                 if(result.stackSize <= 0)
                     result = null;
                 return split;
@@ -90,9 +92,11 @@ public class TileEntityDireCrafting extends TileLudicrous implements IInventory,
                 if(matrix[slot - 1].stackSize <= decrement){
                     ItemStack ingredient = matrix[slot - 1];
                     matrix[slot - 1] = null;
+                    this.markDirty();
                     return ingredient;
                 }
                 ItemStack split = matrix[slot - 1].splitStack(decrement);
+                this.markDirty();
                 if(matrix[slot - 1].stackSize <= 0)
                     matrix[slot - 1] = null;
                 return split;
@@ -127,9 +131,11 @@ public class TileEntityDireCrafting extends TileLudicrous implements IInventory,
     public void setInventorySlotContents(int slot, ItemStack stack){
         if(slot == 0){
             result = stack;
+            this.markDirty();
         }
         else if(slot <= matrix.length){
             matrix[slot - 1] = stack;
+            this.markDirty();
         }
     }
 
