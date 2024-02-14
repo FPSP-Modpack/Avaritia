@@ -2,16 +2,15 @@ package fox.spiteful.avaritia.render;
 
 import java.lang.reflect.Field;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.world.World;
-
 import org.apache.logging.log4j.Level;
 import org.lwjgl.opengl.ARBShaderObjects;
 
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import fox.spiteful.avaritia.Lumberjack;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.EntityRenderer;
+import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.world.World;
 
 public class CosmicRenderShenanigans {
 	public static final ShaderCallback shaderCallback;
@@ -38,6 +37,9 @@ public class CosmicRenderShenanigans {
 				} else {
 					scale = 25.0f;
 				}
+				
+				int time2 = ARBShaderObjects.glGetUniformLocationARB(shader, "time2");
+				ARBShaderObjects.glUniform1fARB(time2, mc.thePlayer.ticksExisted);
 				
 				int x = ARBShaderObjects.glGetUniformLocationARB(shader, "yaw");
 				ARBShaderObjects.glUniform1fARB(x, yaw);
