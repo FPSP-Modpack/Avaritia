@@ -42,6 +42,7 @@ public class Compat {
     public static boolean am2 = false;
     public static boolean forestry = false;
     public static boolean te = false;
+    public static boolean hp = false;
 
     public static void census(){
         nei = Loader.isModLoaded("NotEnoughItems");
@@ -60,6 +61,7 @@ public class Compat {
         am2 = Loader.isModLoaded("arsmagica2") && Config.am2;
         forestry = Loader.isModLoaded("Forestry") && Config.forestry;
         te = Loader.isModLoaded("ThermalExpansion") && Config.te;
+        hp = Loader.isModLoaded("hodgepodge");
     }
 
     public static void compatify(){
@@ -103,15 +105,10 @@ public class Compat {
         if(ae2){
             try {
                 Item resource = getItem("appliedenergistics2", "item.ItemMultiMaterial");
-                if(Loader.isModLoaded("extracells") && Config.extracells){
-                    Item extracell = getItem("extracells", "storage.component");
-                    //16mb cell
-                    Grinder.catalyst.getInput().add(new ItemStack(extracell, 1, 3));
-                }
-                else {
-                    //64k Cell
-                    Grinder.catalyst.getInput().add(new ItemStack(resource, 1, 38));
-                }
+                
+                // 16m cell
+                Grinder.catalyst.getInput().add(new ItemStack(resource, 1, 60));
+                
                 //Singularity
                 Grinder.catalyst.getInput().add(new ItemStack(resource, 1, 47));
 
@@ -459,6 +456,9 @@ public class Compat {
     }
 
     public static class ItemNotFoundException extends Exception {
+
+        private static final long serialVersionUID = -1225515573911036286L;
+
         public ItemNotFoundException(String mod, String item){
             super("Unable to find " + item + " in mod " + mod + "! Are you using the correct version of the mod?");
         }

@@ -15,7 +15,6 @@ public class ItemInfinitatoCostume extends Item {
 
     public static final String[] types = new String[]{"armstrong", "moon", "egbert", "francis"};
 
-    @SideOnly(Side.CLIENT)
     public IIcon[] icons;
 
     public ItemInfinitatoCostume(){

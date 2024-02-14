@@ -85,13 +85,11 @@ public class ItemSingularity extends Item implements IHaloRenderItem {
         return EnumRarity.uncommon;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
-    public void addInformation(ItemStack item, EntityPlayer player, List tooltip, boolean wut) {
+    public void addInformation(ItemStack item, EntityPlayer player, List<String> tooltip, boolean wut) {
 
         int meta = item.getItemDamage();
         if (meta == 10) {
-            //tooltip.add(EnumChatFormatting.DARK_GRAY +""+ EnumChatFormatting.ITALIC + StatCollector.translateToLocal("tooltip.claybalance.desc"));
             tooltip.add(LudicrousText.makeFabulous(StatCollector.translateToLocal("tooltip.claybalance.desc")));
         }
     }
