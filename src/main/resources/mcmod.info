@@ -1,16 +1,21 @@
-[
 {
-  "modid": "Avaritia",
-  "name": "Avaritia",
-  "description": "A mod to see how hard people are willing to grind.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["SpitefulFox", "TTFTCUTS"],
-  "credits": "Vazkii, Greg, brandon3055, vswe, Algorithm",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
+	"modListVersion": 2,
+	"modList": [{
+		"modid": "${modId}",
+		"name": "${modName}",
+		"description": "A mod to see how hard people are willing to grind.",
+		"version": "${modVersion}",
+		"mcversion": "${minecraftVersion}",
+		"url": "",
+		"updateUrl": "",
+		"authorList": ["SpitefulFox", "TTFTCUTS"],
+		"credits": "Vazkii, Greg, brandon3055, vswe, Algorithm",
+		"logoFile": "",
+		"screenshots": [],
+		"parent": "",
+		"requiredMods": [],
+		"dependencies": [],
+		"dependants": [],
+		"useDependencyInformation": false
+	}]
 }
-]
