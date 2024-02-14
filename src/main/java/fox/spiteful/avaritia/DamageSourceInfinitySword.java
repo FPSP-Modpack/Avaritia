@@ -21,7 +21,6 @@ public class DamageSourceInfinitySword extends EntityDamageSource {
 
     public IChatComponent func_151519_b(EntityLivingBase p_151519_1_)
     {
-        ItemStack itemstack = this.damageSourceEntity instanceof EntityLivingBase ? ((EntityLivingBase)this.damageSourceEntity).getHeldItem() : null;
         String s = "death.attack.infinity";
         int rando = randy.nextInt(5);
         if(rando != 0)

@@ -3,15 +3,12 @@ package fox.spiteful.avaritia.compat.minetweaker;
 import fox.spiteful.avaritia.crafting.CompressOreRecipe;
 import fox.spiteful.avaritia.crafting.CompressorManager;
 import fox.spiteful.avaritia.crafting.CompressorRecipe;
-import fox.spiteful.avaritia.crafting.ExtremeCraftingManager;
 import minetweaker.IUndoableAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.oredict.IOreDictEntry;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraftforge.oredict.OreDictionary;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -137,38 +134,6 @@ public class Compressor {
                 MineTweakerAPI.getLogger().logError("Not a valid item stack: " + item);
             }
             return (ItemStack) internal;
-        }
-    }
-
-    private static Object toObject(IIngredient ingredient){
-        if (ingredient == null) return null;
-        else {
-            if (ingredient instanceof IOreDictEntry) {
-                return toString((IOreDictEntry)ingredient);
-            } else if (ingredient instanceof IItemStack) {
-                return toStack((IItemStack) ingredient);
-            } else return null;
-        }
-    }
-
-    private static Object[] toObjects(IIngredient[] list){
-        if(list == null)
-            return null;
-        Object[] ingredients = new Object[list.length];
-        for(int x = 0;x < list.length;x++){
-            ingredients[x] = toObject(list[x]);
-        }
-        return ingredients;
-    }
-
-    private static Object toActualObject(IIngredient ingredient){
-        if (ingredient == null) return null;
-        else {
-            if (ingredient instanceof IOreDictEntry) {
-                return OreDictionary.getOres(toString((IOreDictEntry) ingredient));
-            } else if (ingredient instanceof IItemStack) {
-                return toStack((IItemStack) ingredient);
-            } else return null;
         }
     }
 

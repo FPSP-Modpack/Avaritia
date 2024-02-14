@@ -6,18 +6,9 @@ import fox.spiteful.avaritia.blocks.LudicrousBlocks;
 import fox.spiteful.avaritia.compat.Compat;
 import fox.spiteful.avaritia.items.LudicrousItems;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.event.world.BlockEvent;
-
-import static net.minecraftforge.event.world.BlockEvent.BreakEvent;
+import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 
 public class AchievementTrigger {
-
-    /*@SubscribeEvent
-    public void onItemPickedUp(PlayerEvent.ItemPickupEvent event) {
-        ItemStack stack = event.pickedUp.getEntityItem();
-
-    }*/
 
     @SubscribeEvent
     public void onItemCrafted(PlayerEvent.ItemCraftedEvent event) {

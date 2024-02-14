@@ -5,6 +5,9 @@ import java.util.Arrays;
 
 import org.lwjgl.opengl.GL11;
 
+import fox.spiteful.avaritia.crafting.ExtremeShapedOreRecipe;
+import fox.spiteful.avaritia.crafting.ExtremeShapedRecipe;
+import fox.spiteful.avaritia.crafting.ExtremeShapelessRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.texture.TextureManager;
@@ -13,9 +16,6 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import fox.spiteful.avaritia.crafting.ExtremeShapedOreRecipe;
-import fox.spiteful.avaritia.crafting.ExtremeShapedRecipe;
-import fox.spiteful.avaritia.crafting.ExtremeShapelessRecipe;
 import vazkii.botania.api.internal.IGuiLexiconEntry;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.lexicon.LexiconRecipeMappings;
@@ -84,12 +84,6 @@ public class PageLudicrousRecipe extends PageRecipe {
 
 	@Override
 	public void updateScreen() {
-		/*if(ticksElapsed % 20 == 0) {
-			recipeAt++;
-
-			if(recipeAt == recipes.size())
-				recipeAt = 0;
-		}*/
 		++ticksElapsed;
 	}
 
