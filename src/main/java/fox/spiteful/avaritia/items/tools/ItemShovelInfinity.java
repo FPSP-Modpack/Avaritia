@@ -56,6 +56,7 @@ public class ItemShovelInfinity extends ItemSpade {
         return Math.max(func_150893_a(stack, block), 1.0F);
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister ir) {
 

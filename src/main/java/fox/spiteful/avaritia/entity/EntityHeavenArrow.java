@@ -81,6 +81,7 @@ public class EntityHeavenArrow extends EntityArrow {
     /**
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */
+    @Override
     public void readEntityFromNBT(NBTTagCompound tag)
     {
     	super.readEntityFromNBT(tag);

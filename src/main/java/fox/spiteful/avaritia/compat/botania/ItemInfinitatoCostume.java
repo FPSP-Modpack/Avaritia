@@ -17,6 +17,7 @@ public class ItemInfinitatoCostume extends Item {
         this.setMaxDamage(0);
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister ir) {
         icons = new IIcon[types.length];
@@ -30,6 +31,7 @@ public class ItemInfinitatoCostume extends Item {
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List list) {}
 
+    @Override
     public IIcon getIconFromDamage(int dam) {
         return this.icons[dam % icons.length];
     }

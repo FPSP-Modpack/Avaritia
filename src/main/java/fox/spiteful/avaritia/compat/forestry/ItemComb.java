@@ -35,6 +35,7 @@ public class ItemComb extends Item {
         }
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister par1IconRegister)
     {

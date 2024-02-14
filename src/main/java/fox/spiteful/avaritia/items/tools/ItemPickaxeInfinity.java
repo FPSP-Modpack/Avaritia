@@ -72,6 +72,7 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
         return Math.max(func_150893_a(stack, block), 6.0F);
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister ir) {
 

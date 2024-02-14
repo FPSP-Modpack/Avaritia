@@ -36,6 +36,7 @@ public class ItemResource extends Item implements IHaloRenderItem {
         this.setCreativeTab(Avaritia.tab);
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister ir) {
         icons = new IIcon[types.length];
@@ -58,6 +59,7 @@ public class ItemResource extends Item implements IHaloRenderItem {
     	}
     }
 
+    @Override
     public IIcon getIconFromDamage(int dam) {
         return this.icons[dam % icons.length];
     }

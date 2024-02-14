@@ -300,7 +300,8 @@ public class Mincer {
 			this.orename = orename;
 			this.count = count;
 		}
-		public String toString() {
+		@Override
+        public String toString() {
 			return this.orename+": "+this.count;
 		}
 	}

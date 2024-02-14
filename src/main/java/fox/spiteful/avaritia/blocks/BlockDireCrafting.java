@@ -71,6 +71,7 @@ public class BlockDireCrafting extends BlockContainer {
         return new TileEntityDireCrafting();
     }
 
+    @Override
     public void breakBlock(World world, int x, int y, int z, Block block, int wut)
     {
         TileEntityDireCrafting craft = (TileEntityDireCrafting)world.getTileEntity(x, y, z);

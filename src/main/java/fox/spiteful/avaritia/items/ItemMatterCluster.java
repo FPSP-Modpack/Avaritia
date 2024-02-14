@@ -48,7 +48,8 @@ public class ItemMatterCluster extends Item implements ICosmicRenderItem {
 		this.setTextureName("avaritia:mattercluster");
 	}
 	
-	@SideOnly(Side.CLIENT)
+	@Override
+    @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister ir) {
 		super.registerIcons(ir);
 		

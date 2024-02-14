@@ -88,6 +88,7 @@ public class BlockCompressor extends BlockContainer {
         return new TileEntityCompressor();
     }
 
+    @Override
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack item)
     {
         TileEntity tile = world.getTileEntity(x, y, z);
@@ -110,6 +111,7 @@ public class BlockCompressor extends BlockContainer {
 
     }
 
+    @Override
     public void breakBlock(World world, int x, int y, int z, Block block, int wut)
     {
         TileEntityCompressor compressor = (TileEntityCompressor)world.getTileEntity(x, y, z);

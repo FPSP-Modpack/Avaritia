@@ -20,10 +20,12 @@ public class LudicrousResearchItem extends ResearchItem {
         super(par1, x, tags, y, z, par5, icon);
     }
 
+    @Override
     public String getName() {
         return StatCollector.translateToLocal("avaritia.research_name." + key);
     }
 
+    @Override
     public String getText() {
         return "[AV] " + StatCollector.translateToLocal("avaritia.research_text." + key);
     }

@@ -16,6 +16,7 @@ public class DamageSourceInfinitySword extends EntityDamageSource {
         super("infinity", source);
     }
 
+    @Override
     public IChatComponent func_151519_b(EntityLivingBase p_151519_1_)
     {
         String s = "death.attack.infinity";

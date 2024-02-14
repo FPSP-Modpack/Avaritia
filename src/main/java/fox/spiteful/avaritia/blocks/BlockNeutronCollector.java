@@ -88,6 +88,7 @@ public class BlockNeutronCollector extends BlockContainer {
         return new TileEntityNeutron();
     }
 
+    @Override
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack item)
     {
         TileEntity tile = world.getTileEntity(x, y, z);
@@ -110,6 +111,7 @@ public class BlockNeutronCollector extends BlockContainer {
 
     }
 
+    @Override
     public void breakBlock(World world, int x, int y, int z, Block block, int wut)
     {
             TileEntityNeutron collector = (TileEntityNeutron)world.getTileEntity(x, y, z);
