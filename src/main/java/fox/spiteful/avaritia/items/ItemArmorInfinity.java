@@ -1,10 +1,19 @@
 package fox.spiteful.avaritia.items;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import com.google.common.collect.Multimap;
+
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import fox.spiteful.avaritia.Avaritia;
 import fox.spiteful.avaritia.Config;
 import fox.spiteful.avaritia.LudicrousText;
-import fox.spiteful.avaritia.compat.Belmont;
+import fox.spiteful.avaritia.PotionHelper;
 import fox.spiteful.avaritia.compat.Compat;
 import fox.spiteful.avaritia.entity.EntityImmortalItem;
 import fox.spiteful.avaritia.render.ICosmicRenderItem;
@@ -12,9 +21,9 @@ import fox.spiteful.avaritia.render.ModelArmorInfinity;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import fox.spiteful.avaritia.PotionHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArmor;
@@ -29,11 +38,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import thaumcraft.api.IGoggles;
 import thaumcraft.api.IVisDiscountGear;
 import thaumcraft.api.aspects.Aspect;
@@ -41,10 +45,6 @@ import thaumcraft.api.nodes.IRevealer;
 import vazkii.botania.api.item.IManaProficiencyArmor;
 import vazkii.botania.api.item.IPhantomInkable;
 import vazkii.botania.api.mana.IManaDiscountArmor;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 @Optional.InterfaceList({
         @Optional.Interface(iface = "thaumcraft.api.IGoggles", modid = "Thaumcraft"),
@@ -322,6 +322,7 @@ public class ItemArmorInfinity extends ItemArmor implements ICosmicRenderItem, I
 						boolean swimming = player.isInsideOfMaterial(Material.water) || player.isInWater();
 						if (player.onGround || flying || swimming) {
 							boolean sneaking = player.isSneaking();
+							player.stepHeight = sneaking ? 0.5f : 1.0f;
 							
 							float speed = 0.15f 
 								* (flying ? 1.1f : 1.0f) 
