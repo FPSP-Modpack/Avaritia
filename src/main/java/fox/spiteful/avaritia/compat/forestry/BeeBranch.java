@@ -1,11 +1,11 @@
 package fox.spiteful.avaritia.compat.forestry;
 
+import java.util.ArrayList;
+
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAlleleSpecies;
 import forestry.api.genetics.IClassification;
 import net.minecraft.util.StatCollector;
-
-import java.util.ArrayList;
 
 public enum BeeBranch implements IClassification {
 

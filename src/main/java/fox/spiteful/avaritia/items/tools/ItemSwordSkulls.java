@@ -3,10 +3,8 @@ package fox.spiteful.avaritia.items.tools;
 import java.util.List;
 
 import fox.spiteful.avaritia.Avaritia;
-import fox.spiteful.avaritia.items.LudicrousItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.EnumChatFormatting;

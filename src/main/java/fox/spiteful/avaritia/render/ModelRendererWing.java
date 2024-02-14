@@ -1,9 +1,5 @@
 package fox.spiteful.avaritia.render;
 
-import org.lwjgl.opengl.GL11;
-
-import fox.spiteful.avaritia.Lumberjack;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 

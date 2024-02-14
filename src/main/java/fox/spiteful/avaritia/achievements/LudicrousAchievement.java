@@ -1,12 +1,12 @@
 package fox.spiteful.avaritia.achievements;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class LudicrousAchievement extends Achievement {
 

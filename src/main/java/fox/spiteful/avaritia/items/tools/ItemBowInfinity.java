@@ -3,7 +3,6 @@ package fox.spiteful.avaritia.items.tools;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fox.spiteful.avaritia.Avaritia;
-import fox.spiteful.avaritia.Lumberjack;
 import fox.spiteful.avaritia.entity.EntityHeavenArrow;
 import fox.spiteful.avaritia.render.CosmicBowRenderer;
 import fox.spiteful.avaritia.render.ICosmicRenderItem;
@@ -19,7 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
 public class ItemBowInfinity extends Item implements ICosmicRenderItem {

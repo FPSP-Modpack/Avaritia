@@ -3,17 +3,6 @@
 
 package fox.spiteful.avaritia.compat.ticon;
 
-import com.google.common.base.Throwables;
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
-import fox.spiteful.avaritia.Lumberjack;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.*;
-import net.minecraft.client.resources.data.IMetadataSection;
-import net.minecraft.client.resources.data.IMetadataSerializer;
-import net.minecraft.util.ResourceLocation;
- 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.awt.image.DirectColorModel;
 import java.io.ByteArrayInputStream;
@@ -24,6 +13,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+
+import javax.imageio.ImageIO;
+
+import com.google.common.base.Throwables;
+
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
+import fox.spiteful.avaritia.Lumberjack;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.IReloadableResourceManager;
+import net.minecraft.client.resources.IResourceManager;
+import net.minecraft.client.resources.IResourceManagerReloadListener;
+import net.minecraft.client.resources.IResourcePack;
+import net.minecraft.client.resources.ResourcePackRepository;
+import net.minecraft.client.resources.data.IMetadataSection;
+import net.minecraft.client.resources.data.IMetadataSerializer;
+import net.minecraft.util.ResourceLocation;
 
 /**
  * Original class by RWTema for Extra Utilities

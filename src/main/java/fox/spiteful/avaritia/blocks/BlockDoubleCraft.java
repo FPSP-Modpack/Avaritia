@@ -3,9 +3,7 @@ package fox.spiteful.avaritia.blocks;
 import fox.spiteful.avaritia.Avaritia;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class BlockDoubleCraft extends Block {

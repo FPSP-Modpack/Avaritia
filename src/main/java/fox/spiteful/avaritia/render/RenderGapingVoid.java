@@ -3,9 +3,7 @@ package fox.spiteful.avaritia.render;
 import org.lwjgl.opengl.GL11;
 
 import fox.spiteful.avaritia.ClientProxy;
-import fox.spiteful.avaritia.Lumberjack;
 import fox.spiteful.avaritia.entity.EntityGapingVoid;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;

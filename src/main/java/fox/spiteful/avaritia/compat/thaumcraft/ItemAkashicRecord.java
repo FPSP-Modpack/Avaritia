@@ -1,5 +1,7 @@
 package fox.spiteful.avaritia.compat.thaumcraft;
 
+import java.util.List;
+
 import fox.spiteful.avaritia.Avaritia;
 import fox.spiteful.avaritia.compat.Compat;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,8 +15,6 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.common.Thaumcraft;
 import thaumcraft.common.lib.network.PacketHandler;
 import thaumcraft.common.lib.network.playerdata.PacketAspectPool;
-
-import java.util.List;
 
 public class ItemAkashicRecord extends Item {
 

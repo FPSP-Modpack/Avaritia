@@ -1,6 +1,12 @@
 package fox.spiteful.avaritia.crafting;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Random;
+
+import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.Loader;
 import fox.spiteful.avaritia.Config;
@@ -13,7 +19,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import org.apache.logging.log4j.Level;
 
 public class Mincer {
     public static ShapelessOreRecipe stewRecipe;

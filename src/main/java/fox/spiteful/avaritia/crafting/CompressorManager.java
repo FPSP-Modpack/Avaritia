@@ -1,8 +1,8 @@
 package fox.spiteful.avaritia.crafting;
 
-import net.minecraft.item.ItemStack;
-
 import java.util.ArrayList;
+
+import net.minecraft.item.ItemStack;
 
 public class CompressorManager {
 

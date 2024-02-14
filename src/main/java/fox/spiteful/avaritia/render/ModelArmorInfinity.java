@@ -5,14 +5,11 @@ import java.util.Random;
 
 import org.lwjgl.opengl.GL11;
 
-import fox.spiteful.avaritia.Lumberjack;
 import fox.spiteful.avaritia.items.ItemArmorInfinity;
 import fox.spiteful.avaritia.items.LudicrousItems;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderManager;

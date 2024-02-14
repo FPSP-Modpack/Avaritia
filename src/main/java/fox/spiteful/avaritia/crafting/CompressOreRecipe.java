@@ -1,9 +1,9 @@
 package fox.spiteful.avaritia.crafting;
 
+import java.util.ArrayList;
+
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-
-import java.util.ArrayList;
 
 public class CompressOreRecipe extends CompressorRecipe {
 

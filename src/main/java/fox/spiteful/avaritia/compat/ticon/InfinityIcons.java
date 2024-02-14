@@ -11,9 +11,7 @@ import javax.imageio.ImageIO;
 import org.apache.logging.log4j.Level;
 
 import codechicken.lib.math.MathHelper;
-
 import fox.spiteful.avaritia.Lumberjack;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;

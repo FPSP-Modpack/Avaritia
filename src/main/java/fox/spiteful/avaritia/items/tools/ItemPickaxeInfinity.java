@@ -1,5 +1,7 @@
 package fox.spiteful.avaritia.items.tools;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fox.spiteful.avaritia.Avaritia;
@@ -26,8 +28,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.List;
 
 public class ItemPickaxeInfinity extends ItemPickaxe {
 

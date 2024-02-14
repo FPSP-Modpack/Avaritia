@@ -1,6 +1,7 @@
 package fox.spiteful.avaritia.compat;
 
 import com.emoniph.witchery.util.CreatureUtil;
+
 import cpw.mods.fml.common.Loader;
 import net.minecraft.entity.Entity;
 

@@ -1,8 +1,17 @@
 package fox.spiteful.avaritia;
 
+import static net.minecraft.util.EnumChatFormatting.AQUA;
+import static net.minecraft.util.EnumChatFormatting.BLUE;
+import static net.minecraft.util.EnumChatFormatting.GOLD;
+import static net.minecraft.util.EnumChatFormatting.GRAY;
+import static net.minecraft.util.EnumChatFormatting.GREEN;
+import static net.minecraft.util.EnumChatFormatting.LIGHT_PURPLE;
+import static net.minecraft.util.EnumChatFormatting.RED;
+import static net.minecraft.util.EnumChatFormatting.WHITE;
+import static net.minecraft.util.EnumChatFormatting.YELLOW;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.EnumChatFormatting;
-import static net.minecraft.util.EnumChatFormatting.*;
 
 public class LudicrousText {
 

@@ -2,7 +2,10 @@ package fox.spiteful.avaritia.compat.ticon;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import fox.spiteful.avaritia.Config;
+import fox.spiteful.avaritia.LudicrousEvents;
+import fox.spiteful.avaritia.items.tools.ToolHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -11,19 +14,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import tconstruct.library.event.ToolCraftEvent;
 import tconstruct.library.tools.AbilityHelper;
 import tconstruct.library.tools.ToolCore;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import fox.spiteful.avaritia.LudicrousEvents;
-import fox.spiteful.avaritia.Lumberjack;
-import fox.spiteful.avaritia.items.LudicrousItems;
-import fox.spiteful.avaritia.items.tools.ToolHelper;
 
 public class TonkersEvents {
 	private Random randy = new Random();

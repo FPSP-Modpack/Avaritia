@@ -1,7 +1,6 @@
 package fox.spiteful.avaritia.compat.thaumcraft;
 
 import fox.spiteful.avaritia.Avaritia;
-import fox.spiteful.avaritia.items.LudicrousItems;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

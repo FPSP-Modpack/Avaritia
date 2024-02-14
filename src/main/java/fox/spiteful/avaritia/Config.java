@@ -1,9 +1,10 @@
 package fox.spiteful.avaritia;
 
-import net.minecraftforge.common.config.Configuration;
+import java.io.File;
+
 import org.apache.logging.log4j.Level;
 
-import java.io.File;
+import net.minecraftforge.common.config.Configuration;
 
 public class Config {
 

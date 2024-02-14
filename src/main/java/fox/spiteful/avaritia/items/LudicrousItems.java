@@ -3,18 +3,20 @@ package fox.spiteful.avaritia.items;
 import cpw.mods.fml.common.registry.GameRegistry;
 import fox.spiteful.avaritia.Avaritia;
 import fox.spiteful.avaritia.Config;
-import fox.spiteful.avaritia.items.tools.*;
+import fox.spiteful.avaritia.items.tools.ItemAxeInfinity;
+import fox.spiteful.avaritia.items.tools.ItemBowInfinity;
+import fox.spiteful.avaritia.items.tools.ItemPickaxeInfinity;
+import fox.spiteful.avaritia.items.tools.ItemShovelInfinity;
+import fox.spiteful.avaritia.items.tools.ItemSwordInfinity;
+import fox.spiteful.avaritia.items.tools.ItemSwordSkulls;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
-
-import static net.minecraft.item.Item.ToolMaterial;
 
 public class LudicrousItems {
 

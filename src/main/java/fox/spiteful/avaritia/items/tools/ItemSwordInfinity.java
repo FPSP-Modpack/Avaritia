@@ -1,5 +1,9 @@
 package fox.spiteful.avaritia.items.tools;
 
+import java.lang.reflect.Field;
+
+import org.apache.logging.log4j.Level;
+
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,14 +22,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
-import org.apache.logging.log4j.Level;
-
-import java.lang.reflect.Field;
 
 public class ItemSwordInfinity extends ItemSword implements ICosmicRenderItem {
 

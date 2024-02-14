@@ -3,7 +3,6 @@ package fox.spiteful.avaritia.render;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.ReflectionHelper;
-import fox.spiteful.avaritia.Lumberjack;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

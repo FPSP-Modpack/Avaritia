@@ -1,5 +1,7 @@
 package fox.spiteful.avaritia.compat.bloodmagic;
 
+import java.util.List;
+
 import WayofTime.alchemicalWizardry.api.altarRecipeRegistry.AltarRecipeRegistry;
 import WayofTime.alchemicalWizardry.api.items.interfaces.IBindable;
 import WayofTime.alchemicalWizardry.api.items.interfaces.IBloodOrb;
@@ -14,8 +16,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class ItemOrbArmok extends Item implements IBloodOrb, IBindable {
 

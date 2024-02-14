@@ -1,12 +1,12 @@
 package fox.spiteful.avaritia;
 
-import cpw.mods.fml.relauncher.ReflectionHelper;
-import net.minecraft.potion.Potion;
-import org.apache.logging.log4j.Level;
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.TreeSet;
+
+import org.apache.logging.log4j.Level;
+
+import cpw.mods.fml.relauncher.ReflectionHelper;
+import net.minecraft.potion.Potion;
 
 public class PotionHelper {
     private static ArrayList<Potion> badPotions;

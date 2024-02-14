@@ -8,7 +8,6 @@ import java.util.Map.Entry;
 import java.util.Random;
 
 import codechicken.lib.math.MathHelper;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fox.spiteful.avaritia.Lumberjack;

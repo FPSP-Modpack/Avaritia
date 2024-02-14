@@ -1,14 +1,12 @@
 package fox.spiteful.avaritia.compat.ticon;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import fox.spiteful.avaritia.compat.Compat;
-import net.minecraft.item.Item;
+import fox.spiteful.avaritia.crafting.ExtremeCraftingManager;
+import fox.spiteful.avaritia.items.LudicrousItems;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
-import fox.spiteful.avaritia.crafting.ExtremeCraftingManager;
-import fox.spiteful.avaritia.items.LudicrousItems;
 import tconstruct.library.TConstructRegistry;
 import tconstruct.library.crafting.ModifyBuilder;
 import tconstruct.library.crafting.PatternBuilder;

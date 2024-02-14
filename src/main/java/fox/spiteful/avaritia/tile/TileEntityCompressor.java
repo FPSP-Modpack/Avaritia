@@ -1,14 +1,10 @@
 package fox.spiteful.avaritia.tile;
 
-import fox.spiteful.avaritia.Lumberjack;
 import fox.spiteful.avaritia.crafting.CompressorManager;
-import fox.spiteful.avaritia.items.LudicrousItems;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import org.apache.logging.log4j.Level;
 
 public class TileEntityCompressor extends TileLudicrous implements ISidedInventory {
 

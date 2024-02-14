@@ -5,7 +5,6 @@ import org.lwjgl.opengl.GL12;
 
 import fox.spiteful.avaritia.items.ItemFracturedOre;
 import fox.spiteful.avaritia.items.ItemFracturedOre.NameStack;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.client.Minecraft;

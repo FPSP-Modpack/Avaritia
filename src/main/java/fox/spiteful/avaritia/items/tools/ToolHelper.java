@@ -7,6 +7,18 @@
 
 package fox.spiteful.avaritia.items.tools;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Random;
+import java.util.Set;
+import java.util.WeakHashMap;
+
+import fox.spiteful.avaritia.items.ItemMatterCluster;
+import fox.spiteful.avaritia.items.ItemStackWrapper;
 import fox.spiteful.avaritia.items.LudicrousItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -19,14 +31,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-
-import java.util.*;
-import java.util.Map.Entry;
-
-import fox.spiteful.avaritia.Lumberjack;
-import fox.spiteful.avaritia.items.ItemMatterCluster;
-import fox.spiteful.avaritia.items.ItemStackWrapper;
-import org.apache.logging.log4j.Level;
 
 public class ToolHelper {
 
