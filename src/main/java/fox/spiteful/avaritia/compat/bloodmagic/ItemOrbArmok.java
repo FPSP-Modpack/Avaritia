@@ -2,12 +2,6 @@ package fox.spiteful.avaritia.compat.bloodmagic;
 
 import java.util.List;
 
-import WayofTime.alchemicalWizardry.api.altarRecipeRegistry.AltarRecipeRegistry;
-import WayofTime.alchemicalWizardry.api.items.interfaces.IBindable;
-import WayofTime.alchemicalWizardry.api.items.interfaces.IBloodOrb;
-import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
-import fox.spiteful.avaritia.Avaritia;
-import fox.spiteful.avaritia.items.LudicrousItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
@@ -17,9 +11,16 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
+import WayofTime.alchemicalWizardry.api.altarRecipeRegistry.AltarRecipeRegistry;
+import WayofTime.alchemicalWizardry.api.items.interfaces.IBindable;
+import WayofTime.alchemicalWizardry.api.items.interfaces.IBloodOrb;
+import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
+import fox.spiteful.avaritia.Avaritia;
+import fox.spiteful.avaritia.items.LudicrousItems;
+
 public class ItemOrbArmok extends Item implements IBloodOrb, IBindable {
 
-    public ItemOrbArmok(){
+    public ItemOrbArmok() {
         setMaxStackSize(1);
         this.setUnlocalizedName("orb_armok");
         this.setTextureName("avaritia:orb_armok");
@@ -29,30 +30,30 @@ public class ItemOrbArmok extends Item implements IBloodOrb, IBindable {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
-        if (!world.isRemote)
-            SoulNetworkHandler.checkAndSetItemOwner(itemstack, player);
+        if (!world.isRemote) SoulNetworkHandler.checkAndSetItemOwner(itemstack, player);
 
         return itemstack;
     }
 
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
-        if(!world.isRemote && entity instanceof EntityPlayer){
+        if (!world.isRemote && entity instanceof EntityPlayer) {
             NBTTagCompound itemTag = stack.stackTagCompound;
-            if (itemTag == null || itemTag.getString("ownerName").equals(""))
-                return;
+            if (itemTag == null || itemTag.getString("ownerName")
+                .equals("")) return;
 
             SoulNetworkHandler.setCurrentEssence(itemTag.getString("ownerName"), getMaxEssence());
         }
     }
 
     @Override
-    public void addInformation(ItemStack item, EntityPlayer player, List<String> tooltip, boolean wut)
-    {
+    public void addInformation(ItemStack item, EntityPlayer player, List<String> tooltip, boolean wut) {
         tooltip.add(StatCollector.translateToLocal("tooltip.armok.desc"));
-        if (item.getTagCompound() != null)
-        {
-            tooltip.add(StatCollector.translateToLocal("tooltip.owner.currentowner") + " " + item.getTagCompound().getString("ownerName"));
+        if (item.getTagCompound() != null) {
+            tooltip.add(
+                StatCollector.translateToLocal("tooltip.owner.currentowner") + " "
+                    + item.getTagCompound()
+                        .getString("ownerName"));
         }
     }
 
@@ -72,20 +73,17 @@ public class ItemOrbArmok extends Item implements IBloodOrb, IBindable {
     }
 
     @Override
-    public boolean hasContainerItem()
-    {
+    public boolean hasContainerItem() {
         return true;
     }
 
     @Override
-    public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack)
-    {
+    public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack) {
         return false;
     }
 
     @Override
-    public ItemStack getContainerItem(ItemStack itemStack)
-    {
+    public ItemStack getContainerItem(ItemStack itemStack) {
         return itemStack;
     }
 

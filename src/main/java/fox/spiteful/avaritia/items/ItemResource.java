@@ -2,11 +2,6 @@ package fox.spiteful.avaritia.items;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fox.spiteful.avaritia.Avaritia;
-import fox.spiteful.avaritia.entity.EntityImmortalItem;
-import fox.spiteful.avaritia.render.IHaloRenderItem;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -20,16 +15,22 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fox.spiteful.avaritia.Avaritia;
+import fox.spiteful.avaritia.entity.EntityImmortalItem;
+import fox.spiteful.avaritia.render.IHaloRenderItem;
+
 public class ItemResource extends Item implements IHaloRenderItem {
 
-    private static final String[] types = new String[]{"diamond_lattice", "crystal_matrix_ingot", "neutron_pile",
-            "neutron_nugget", "neutronium_ingot", "infinity_catalyst", "infinity_ingot", "record_fragment", "starfuel",
-            "neutronium_gear"};
-    
+    private static final String[] types = new String[] { "diamond_lattice", "crystal_matrix_ingot", "neutron_pile",
+        "neutron_nugget", "neutronium_ingot", "infinity_catalyst", "infinity_ingot", "record_fragment", "starfuel",
+        "neutronium_gear" };
+
     public IIcon[] icons;
     public IIcon[] halo;
 
-    public ItemResource(){
+    public ItemResource() {
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
         this.setUnlocalizedName("avaritia_resource");
@@ -50,13 +51,16 @@ public class ItemResource extends Item implements IHaloRenderItem {
         halo[1] = ir.registerIcon("avaritia:halonoise");
     }
 
-	@Override
+    @Override
     public void addInformation(ItemStack item, EntityPlayer player, List<String> tooltip, boolean wut) {
 
-    	int meta = item.getItemDamage();
-    	if (meta != 0 && meta < 8) {
-    		tooltip.add(EnumChatFormatting.DARK_GRAY +""+ EnumChatFormatting.ITALIC + StatCollector.translateToLocal("tooltip."+types[meta]+".desc"));
-    	}
+        int meta = item.getItemDamage();
+        if (meta != 0 && meta < 8) {
+            tooltip.add(
+                EnumChatFormatting.DARK_GRAY + ""
+                    + EnumChatFormatting.ITALIC
+                    + StatCollector.translateToLocal("tooltip." + types[meta] + ".desc"));
+        }
     }
 
     @Override
@@ -78,9 +82,8 @@ public class ItemResource extends Item implements IHaloRenderItem {
     }
 
     @Override
-    public EnumRarity getRarity(ItemStack stack)
-    {
-        switch(stack.getItemDamage()){
+    public EnumRarity getRarity(ItemStack stack) {
+        switch (stack.getItemDamage()) {
             case 0:
             case 2:
             case 3:
@@ -99,64 +102,62 @@ public class ItemResource extends Item implements IHaloRenderItem {
         }
     }
 
-	@Override
-	public boolean drawHalo(ItemStack stack) {
-		int meta = stack.getItemDamage();
-		return (meta >= 2 && meta <= 6) || meta >= 8;
-	}
+    @Override
+    public boolean drawHalo(ItemStack stack) {
+        int meta = stack.getItemDamage();
+        return (meta >= 2 && meta <= 6) || meta >= 8;
+    }
 
-	@Override
-	public IIcon getHaloTexture(ItemStack stack) {
-		int meta = stack.getItemDamage();
-		if (meta == 2 || meta == 3 || meta == 4 || meta == 9) {
-			return halo[1];
-		}
-		return halo[0];
-	}
+    @Override
+    public IIcon getHaloTexture(ItemStack stack) {
+        int meta = stack.getItemDamage();
+        if (meta == 2 || meta == 3 || meta == 4 || meta == 9) {
+            return halo[1];
+        }
+        return halo[0];
+    }
 
-	@Override
-	public int getHaloSize(ItemStack stack) {
-		int meta = stack.getItemDamage();
-		switch(meta) {
-		case 5:
-		case 6:
-			return 10;
-		}
-		return 8;
-	}
+    @Override
+    public int getHaloSize(ItemStack stack) {
+        int meta = stack.getItemDamage();
+        switch (meta) {
+            case 5:
+            case 6:
+                return 10;
+        }
+        return 8;
+    }
 
-	@Override
-	public boolean drawPulseEffect(ItemStack stack) {
-		int meta = stack.getItemDamage();
-		return meta == 5 || meta == 6;
-	}
-
-	@Override
-	public int getHaloColour(ItemStack stack) {
-		int meta = stack.getItemDamage();
-		if (meta == 2) {
-			return 0x33FFFFFF;
-		}
-		if (meta == 3) {
-			return 0x4DFFFFFF;
-		}
-		if (meta == 4 || meta == 9) {
-			return 0x99FFFFFF;
-		}
-		return 0xFF000000;
-	}
-	
-	@Override
-    public boolean hasCustomEntity (ItemStack stack)
-    {
-		int meta = stack.getItemDamage();
+    @Override
+    public boolean drawPulseEffect(ItemStack stack) {
+        int meta = stack.getItemDamage();
         return meta == 5 || meta == 6;
     }
 
     @Override
-    public Entity createEntity (World world, Entity location, ItemStack itemstack)
-    {
-    	int meta = itemstack.getItemDamage();
+    public int getHaloColour(ItemStack stack) {
+        int meta = stack.getItemDamage();
+        if (meta == 2) {
+            return 0x33FFFFFF;
+        }
+        if (meta == 3) {
+            return 0x4DFFFFFF;
+        }
+        if (meta == 4 || meta == 9) {
+            return 0x99FFFFFF;
+        }
+        return 0xFF000000;
+    }
+
+    @Override
+    public boolean hasCustomEntity(ItemStack stack) {
+        int meta = stack.getItemDamage();
+        return meta == 5 || meta == 6;
+    }
+
+    @Override
+    public Entity createEntity(World world, Entity location, ItemStack itemstack) {
+        int meta = itemstack.getItemDamage();
         return (meta == 5 || meta == 6) ? new EntityImmortalItem(world, location, itemstack) : null;
     }
 }

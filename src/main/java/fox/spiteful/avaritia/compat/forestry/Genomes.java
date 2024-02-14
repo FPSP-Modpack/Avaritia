@@ -5,7 +5,7 @@ import forestry.api.genetics.IAllele;
 
 public class Genomes {
 
-    public static IAllele[] getBase(){
+    public static IAllele[] getBase() {
         IAllele[] genome = new IAllele[EnumBeeChromosome.values().length];
 
         genome[EnumBeeChromosome.SPECIES.ordinal()] = GreedyBeeSpecies.ANNOYING;
@@ -25,19 +25,19 @@ public class Genomes {
         return genome;
     }
 
-    public static IAllele[] getBalanced(){
+    public static IAllele[] getBalanced() {
         IAllele[] genome = getBase();
 
         genome[EnumBeeChromosome.SPEED.ordinal()] = Allele.grindySpeed;
         genome[EnumBeeChromosome.LIFESPAN.ordinal()] = Allele.grindyLife;
         genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
         genome[EnumBeeChromosome.TOLERANT_FLYER.ordinal()] = Allele.getBaseAllele("boolTrue");
-        //genome[EnumBeeChromosome.FLOWER_PROVIDER.ordinal()] = Allele.getBaseAllele("flowersVanilla");
+        // genome[EnumBeeChromosome.FLOWER_PROVIDER.ordinal()] = Allele.getBaseAllele("flowersVanilla");
 
         return genome;
     }
 
-    public static IAllele[] getTedious(){
+    public static IAllele[] getTedious() {
         IAllele[] genome = getBalanced();
 
         genome[EnumBeeChromosome.SPECIES.ordinal()] = GreedyBeeSpecies.TEDIOUS;
@@ -45,7 +45,7 @@ public class Genomes {
         return genome;
     }
 
-    public static IAllele[] getInsufferable(){
+    public static IAllele[] getInsufferable() {
         IAllele[] genome = getBalanced();
 
         genome[EnumBeeChromosome.SPECIES.ordinal()] = GreedyBeeSpecies.INSUFFERABLE;
@@ -53,18 +53,18 @@ public class Genomes {
         return genome;
     }
 
-    public static IAllele[] getInfinite(){
+    public static IAllele[] getInfinite() {
         IAllele[] genome = getBase();
 
         genome[EnumBeeChromosome.SPECIES.ordinal()] = GreedyBeeSpecies.TRIPPY;
         genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
         genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
-        //genome[EnumBeeChromosome.FLOWER_PROVIDER.ordinal()] = Allele.getBaseAllele("flowersVanilla");
+        // genome[EnumBeeChromosome.FLOWER_PROVIDER.ordinal()] = Allele.getBaseAllele("flowersVanilla");
 
         return genome;
     }
 
-    public static IAllele[] getCosmic(){
+    public static IAllele[] getCosmic() {
         IAllele[] genome = getInfinite();
 
         genome[EnumBeeChromosome.SPECIES.ordinal()] = GreedyBeeSpecies.COSMIC;
@@ -72,7 +72,7 @@ public class Genomes {
         return genome;
     }
 
-    public static IAllele[] getNeutronium(){
+    public static IAllele[] getNeutronium() {
         IAllele[] genome = getInfinite();
 
         genome[EnumBeeChromosome.SPECIES.ordinal()] = GreedyBeeSpecies.NEUTRONIUM;
@@ -80,7 +80,7 @@ public class Genomes {
         return genome;
     }
 
-    public static IAllele[] getInfiniteBee(){
+    public static IAllele[] getInfiniteBee() {
         IAllele[] genome = getInfinite();
 
         genome[EnumBeeChromosome.SPECIES.ordinal()] = GreedyBeeSpecies.INFINITE;

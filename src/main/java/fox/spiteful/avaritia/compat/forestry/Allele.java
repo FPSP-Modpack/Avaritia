@@ -1,9 +1,10 @@
 package fox.spiteful.avaritia.compat.forestry;
 
+import net.minecraft.util.StatCollector;
+
 import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
-import net.minecraft.util.StatCollector;
 
 public class Allele implements IAllele {
 
@@ -14,12 +15,12 @@ public class Allele implements IAllele {
     private String id;
     private boolean dom;
 
-    public static void prepareGenes(){
+    public static void prepareGenes() {
         grindySpeed = new AlleleFloat("speedNerfed", true, 0.1f);
         grindyLife = new AlleleInteger("lifespanArtificial", false, 75);
     }
 
-    public Allele(String moniker, boolean dominant){
+    public Allele(String moniker, boolean dominant) {
         name = "avaritia.allele." + moniker;
         id = "avaritia." + moniker;
         dom = dominant;
@@ -27,36 +28,43 @@ public class Allele implements IAllele {
     }
 
     @Override
-    public String getUID(){
+    public String getUID() {
         return id;
     }
 
     @Override
-    public String getName(){
+    public String getName() {
         return StatCollector.translateToLocal(name);
     }
 
     @Override
-    public String getUnlocalizedName(){
+    public String getUnlocalizedName() {
         return name;
     }
 
     @Override
-    public boolean isDominant(){
+    public boolean isDominant() {
         return dom;
     }
 
     public static IAlleleBeeSpecies getBaseSpecies(String name) {
-        return (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele((new StringBuilder()).append("forestry.species").append(name).toString());
+        return (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(
+            (new StringBuilder()).append("forestry.species")
+                .append(name)
+                .toString());
     }
 
     public static IAlleleBeeSpecies getExtraSpecies(String name) {
-        return (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele((new StringBuilder()).append("extrabees.species.").append(name.toLowerCase())
+        return (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(
+            (new StringBuilder()).append("extrabees.species.")
+                .append(name.toLowerCase())
                 .toString());
     }
 
     public static IAlleleBeeSpecies getMagicSpecies(String name) {
-        return (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele((new StringBuilder()).append("magicbees.species").append(name)
+        return (IAlleleBeeSpecies) AlleleManager.alleleRegistry.getAllele(
+            (new StringBuilder()).append("magicbees.species")
+                .append(name)
                 .toString());
     }
 

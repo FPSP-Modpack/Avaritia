@@ -1,12 +1,12 @@
 package fox.spiteful.avaritia.blocks;
 
+import net.minecraft.block.Block;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import fox.spiteful.avaritia.Config;
 import fox.spiteful.avaritia.tile.TileEntityCompressor;
 import fox.spiteful.avaritia.tile.TileEntityDireCrafting;
 import fox.spiteful.avaritia.tile.TileEntityNeutron;
-import net.minecraft.block.Block;
-
 
 public class LudicrousBlocks {
 
@@ -24,14 +24,13 @@ public class LudicrousBlocks {
 
     public static Block infinitato;
 
-    public static void voxelize(){
+    public static void voxelize() {
         double_craft = GameRegistry.registerBlock(new BlockDoubleCraft(), "Double_Craft");
         triple_craft = GameRegistry.registerBlock(new BlockTripleCraft(), "Triple_Craft");
         dire_crafting = GameRegistry.registerBlock(new BlockDireCrafting(), "Dire_Crafting");
         GameRegistry.registerTileEntity(TileEntityDireCrafting.class, "Avaritia_Dire_Craft");
 
-        if(Config.craftingOnly)
-            return;
+        if (Config.craftingOnly) return;
 
         crystal_matrix = GameRegistry.registerBlock(new BlockCrystalMatrix(), "Crystal_Matrix");
         resource_block = GameRegistry.registerBlock(new BlockResource(), ItemBlockResource.class, "Resource_Block");

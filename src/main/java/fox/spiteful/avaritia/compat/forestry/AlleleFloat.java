@@ -6,13 +6,13 @@ public class AlleleFloat extends Allele implements IAlleleFloat {
 
     private float value;
 
-    public AlleleFloat(String moniker, boolean dom, float val){
+    public AlleleFloat(String moniker, boolean dom, float val) {
         super(moniker, dom);
         value = val;
     }
 
     @Override
-    public float getValue(){
+    public float getValue() {
         return value;
     }
 }

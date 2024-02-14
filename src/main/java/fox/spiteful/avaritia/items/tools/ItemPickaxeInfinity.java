@@ -2,11 +2,6 @@ package fox.spiteful.avaritia.items.tools;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fox.spiteful.avaritia.Avaritia;
-import fox.spiteful.avaritia.entity.EntityImmortalItem;
-import fox.spiteful.avaritia.items.LudicrousItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -29,21 +24,30 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fox.spiteful.avaritia.Avaritia;
+import fox.spiteful.avaritia.entity.EntityImmortalItem;
+import fox.spiteful.avaritia.items.LudicrousItems;
+
 public class ItemPickaxeInfinity extends ItemPickaxe {
 
-    private static final ToolMaterial opPickaxe = EnumHelper.addToolMaterial("INFINITY_PICKAXE", 32, 9999, 9999F, 6.0F, 200);
+    private static final ToolMaterial opPickaxe = EnumHelper
+        .addToolMaterial("INFINITY_PICKAXE", 32, 9999, 9999F, 6.0F, 200);
     private IIcon hammer;
 
-    public static final Material[] MATERIALS = new Material[] { Material.rock, Material.iron, Material.ice, Material.glass, Material.piston, Material.anvil, Material.grass, Material.ground, Material.sand, Material.snow, Material.craftedSnow, Material.clay };
+    public static final Material[] MATERIALS = new Material[] { Material.rock, Material.iron, Material.ice,
+        Material.glass, Material.piston, Material.anvil, Material.grass, Material.ground, Material.sand, Material.snow,
+        Material.craftedSnow, Material.clay };
 
-    public ItemPickaxeInfinity(){
+    public ItemPickaxeInfinity() {
         super(opPickaxe);
         setUnlocalizedName("infinity_pickaxe");
         setCreativeTab(Avaritia.tab);
     }
 
     @Override
-    public void setDamage(ItemStack stack, int damage){
+    public void setDamage(ItemStack stack, int damage) {
         super.setDamage(stack, 0);
     }
 
@@ -55,18 +59,17 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
     }
 
     @Override
-    public EnumRarity getRarity(ItemStack stack)
-    {
+    public EnumRarity getRarity(ItemStack stack) {
         return LudicrousItems.cosmic;
     }
 
     @Override
-    public float getDigSpeed(ItemStack stack, Block block, int meta){
-        if(stack.getTagCompound() != null && stack.getTagCompound().getBoolean("hammer")){
+    public float getDigSpeed(ItemStack stack, Block block, int meta) {
+        if (stack.getTagCompound() != null && stack.getTagCompound()
+            .getBoolean("hammer")) {
             return 5.0F;
         }
-        if (ForgeHooks.isToolEffective(stack, block, meta))
-        {
+        if (ForgeHooks.isToolEffective(stack, block, meta)) {
             return efficiencyOnProperMaterial;
         }
         return Math.max(func_150893_a(stack, block), 6.0F);
@@ -81,30 +84,29 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
     }
 
     @Override
-    public IIcon getIcon(ItemStack stack, int pass){
+    public IIcon getIcon(ItemStack stack, int pass) {
 
         NBTTagCompound tags = stack.getTagCompound();
-        if(tags != null){
-            if(tags.getBoolean("hammer"))
-                return hammer;
+        if (tags != null) {
+            if (tags.getBoolean("hammer")) return hammer;
         }
         return itemIcon;
     }
 
     @Override
-    public IIcon getIconIndex(ItemStack stack){
+    public IIcon getIconIndex(ItemStack stack) {
         return getIcon(stack, 0);
     }
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        if(player.isSneaking()) {
+        if (player.isSneaking()) {
             NBTTagCompound tags = stack.getTagCompound();
             if (tags == null) {
                 tags = new NBTTagCompound();
                 stack.setTagCompound(tags);
             }
-            if(EnchantmentHelper.getEnchantmentLevel(Enchantment.fortune.effectId, stack) < 10)
+            if (EnchantmentHelper.getEnchantmentLevel(Enchantment.fortune.effectId, stack) < 10)
                 stack.addEnchantment(Enchantment.fortune, 10);
             tags.setBoolean("hammer", !tags.getBoolean("hammer"));
             player.swingItem();
@@ -113,12 +115,16 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
     }
 
     @Override
-    public boolean hitEntity(ItemStack stack, EntityLivingBase victim, EntityLivingBase player){
-        if(stack.getTagCompound() != null){
-            if(stack.getTagCompound().getBoolean("hammer")) {
-                if(!(victim instanceof EntityPlayer && LudicrousItems.isInfinite((EntityPlayer)victim))) {
+    public boolean hitEntity(ItemStack stack, EntityLivingBase victim, EntityLivingBase player) {
+        if (stack.getTagCompound() != null) {
+            if (stack.getTagCompound()
+                .getBoolean("hammer")) {
+                if (!(victim instanceof EntityPlayer && LudicrousItems.isInfinite((EntityPlayer) victim))) {
                     int i = 10;
-                    victim.addVelocity((double) (-MathHelper.sin(player.rotationYaw * (float) Math.PI / 180.0F) * (float) i * 0.5F), 2.0D, (double) (MathHelper.cos(player.rotationYaw * (float) Math.PI / 180.0F) * (float) i * 0.5F));
+                    victim.addVelocity(
+                        (double) (-MathHelper.sin(player.rotationYaw * (float) Math.PI / 180.0F) * (float) i * 0.5F),
+                        2.0D,
+                        (double) (MathHelper.cos(player.rotationYaw * (float) Math.PI / 180.0F) * (float) i * 0.5F));
                 }
             }
         }
@@ -127,7 +133,8 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
 
     @Override
     public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
-        if(stack.getTagCompound() != null && stack.getTagCompound().getBoolean("hammer")) {
+        if (stack.getTagCompound() != null && stack.getTagCompound()
+            .getBoolean("hammer")) {
             MovingObjectPosition raycast = ToolHelper.raytraceFromEntity(player.worldObj, player, true, 10);
             if (raycast != null) {
                 breakOtherBlock(player, stack, x, y, z, x, y, z, raycast.sideHit);
@@ -136,15 +143,15 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
         return false;
     }
 
-    public void breakOtherBlock(EntityPlayer player, ItemStack stack, int x, int y, int z, int originX, int originY, int originZ, int side) {
+    public void breakOtherBlock(EntityPlayer player, ItemStack stack, int x, int y, int z, int originX, int originY,
+        int originZ, int side) {
 
         World world = player.worldObj;
-        Material mat = world.getBlock(x, y, z).getMaterial();
-        if(!ToolHelper.isRightMaterial(mat, MATERIALS))
-            return;
+        Material mat = world.getBlock(x, y, z)
+            .getMaterial();
+        if (!ToolHelper.isRightMaterial(mat, MATERIALS)) return;
 
-        if(world.isAirBlock(x, y, z))
-            return;
+        if (world.isAirBlock(x, y, z)) return;
 
         ForgeDirection direction = ForgeDirection.getOrientation(side);
         int fortune = EnchantmentHelper.getFortuneModifier(player);
@@ -153,25 +160,39 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
 
         int range = 8;
 
-        ToolHelper.removeBlocksInIteration(player, stack, world, x, y, z, -range, doY ? -1 : -range, -range, range, doY ? range * 2 - 2 : range, range, null, MATERIALS, silk, fortune, false);
+        ToolHelper.removeBlocksInIteration(
+            player,
+            stack,
+            world,
+            x,
+            y,
+            z,
+            -range,
+            doY ? -1 : -range,
+            -range,
+            range,
+            doY ? range * 2 - 2 : range,
+            range,
+            null,
+            MATERIALS,
+            silk,
+            fortune,
+            false);
 
     }
-    
+
     @Override
-    public boolean hasCustomEntity (ItemStack stack)
-    {
+    public boolean hasCustomEntity(ItemStack stack) {
         return true;
     }
 
     @Override
-    public Entity createEntity (World world, Entity location, ItemStack itemstack)
-    {
+    public Entity createEntity(World world, Entity location, ItemStack itemstack) {
         return new EntityImmortalItem(world, location, itemstack);
     }
 
     @Override
-    public boolean hasEffect(ItemStack par1ItemStack, int pass)
-    {
+    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
         return false;
     }
 

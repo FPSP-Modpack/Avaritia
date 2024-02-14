@@ -1,19 +1,19 @@
 package fox.spiteful.avaritia.compat;
 
+import net.minecraft.entity.Entity;
+
 import com.emoniph.witchery.util.CreatureUtil;
 
 import cpw.mods.fml.common.Loader;
-import net.minecraft.entity.Entity;
 
 public class Belmont {
 
-    public static boolean isVampire(Entity entity){
+    public static boolean isVampire(Entity entity) {
 
-        if(Loader.isModLoaded("witchery")){
+        if (Loader.isModLoaded("witchery")) {
             try {
                 return CreatureUtil.isVampire(entity);
-            }
-            catch(Throwable e){}
+            } catch (Throwable e) {}
         }
 
         return false;

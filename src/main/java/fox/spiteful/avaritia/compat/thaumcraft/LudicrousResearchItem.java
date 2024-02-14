@@ -3,6 +3,7 @@ package fox.spiteful.avaritia.compat.thaumcraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.research.ResearchItem;
 
@@ -12,7 +13,8 @@ public class LudicrousResearchItem extends ResearchItem {
         super(par1, x);
     }
 
-    public LudicrousResearchItem(String par1, String x, AspectList tags, int y, int z, int par5, ResourceLocation icon) {
+    public LudicrousResearchItem(String par1, String x, AspectList tags, int y, int z, int par5,
+        ResourceLocation icon) {
         super(par1, x, tags, y, z, par5, icon);
     }
 

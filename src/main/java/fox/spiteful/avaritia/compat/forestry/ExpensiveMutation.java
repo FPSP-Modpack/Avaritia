@@ -21,7 +21,7 @@ public class ExpensiveMutation implements IBeeMutation {
     private boolean secret = false;
     private float baseChance;
 
-    public ExpensiveMutation(IAlleleBeeSpecies first, IAlleleBeeSpecies second, IAllele[] result, float chance){
+    public ExpensiveMutation(IAlleleBeeSpecies first, IAlleleBeeSpecies second, IAllele[] result, float chance) {
         mom = first;
         dad = second;
         template = result;
@@ -29,45 +29,36 @@ public class ExpensiveMutation implements IBeeMutation {
         BeeManager.beeRoot.registerMutation(this);
     }
 
-    public static void mutate(){
+    public static void mutate() {
         IAlleleBeeSpecies first;
         IAlleleBeeSpecies second;
-        if(Ranger.extra)
-            first = Allele.getExtraSpecies("Relic");
-        else
-            first = Allele.getBaseSpecies("Austere");
+        if (Ranger.extra) first = Allele.getExtraSpecies("Relic");
+        else first = Allele.getBaseSpecies("Austere");
         second = Allele.getBaseSpecies("Hermitic");
         new ExpensiveMutation(first, second, Genomes.getBalanced(), 0.8f);
-        if(Ranger.magic)
-            first = Allele.getMagicSpecies("Draconic");
-        else
-            first = Allele.getBaseSpecies("Heroic");
+        if (Ranger.magic) first = Allele.getMagicSpecies("Draconic");
+        else first = Allele.getBaseSpecies("Heroic");
         new ExpensiveMutation(first, GreedyBeeSpecies.ANNOYING, Genomes.getTedious(), 0.7f);
-        if(Ranger.extra)
-            first = Allele.getExtraSpecies("Virulent");
-        else if(Ranger.magic)
-            first = Allele.getMagicSpecies("Withering");
-        else
-            first = Allele.getBaseSpecies("Demonic");
+        if (Ranger.extra) first = Allele.getExtraSpecies("Virulent");
+        else if (Ranger.magic) first = Allele.getMagicSpecies("Withering");
+        else first = Allele.getBaseSpecies("Demonic");
         new ExpensiveMutation(first, GreedyBeeSpecies.TEDIOUS, Genomes.getInsufferable(), 0.6f);
 
-        new ExpensiveMutation(Allele.getBaseSpecies("Edenic"), GreedyBeeSpecies.INSUFFERABLE, Genomes.getInfinite(), 0.4f);
-        if(Ranger.magic)
-            first = Allele.getMagicSpecies("Doctoral");
-        else if(Ranger.extra)
-            first = Allele.getExtraSpecies("Diamond");
-        else
-            first = Allele.getBaseSpecies("Phantasmal");
+        new ExpensiveMutation(
+            Allele.getBaseSpecies("Edenic"),
+            GreedyBeeSpecies.INSUFFERABLE,
+            Genomes.getInfinite(),
+            0.4f);
+        if (Ranger.magic) first = Allele.getMagicSpecies("Doctoral");
+        else if (Ranger.extra) first = Allele.getExtraSpecies("Diamond");
+        else first = Allele.getBaseSpecies("Phantasmal");
 
         new ExpensiveMutation(first, GreedyBeeSpecies.TRIPPY, Genomes.getCosmic(), 0.8f);
 
-        if(Ranger.magic)
-            first = Allele.getMagicSpecies("Firey");
-        else if(Ranger.extra)
-            first = Allele.getExtraSpecies("Volcanic");
-        else
-            first = Allele.getBaseSpecies("Industrious");
-        //new ExpensiveMutation(first, GreedyBeeSpecies.COSMIC, Genomes.getNeutronium(), 0.6f);
+        if (Ranger.magic) first = Allele.getMagicSpecies("Firey");
+        else if (Ranger.extra) first = Allele.getExtraSpecies("Volcanic");
+        else first = Allele.getBaseSpecies("Industrious");
+        // new ExpensiveMutation(first, GreedyBeeSpecies.COSMIC, Genomes.getNeutronium(), 0.6f);
     }
 
     @Override
@@ -96,19 +87,22 @@ public class ExpensiveMutation implements IBeeMutation {
     }
 
     @Override
-    public boolean isSecret(){
+    public boolean isSecret() {
         return secret;
     }
 
     @Override
     public boolean isPartner(IAllele allele) {
-        return mom.getUID().equals(allele.getUID()) || dad.getUID().equals(allele.getUID());
+        return mom.getUID()
+            .equals(allele.getUID())
+            || dad.getUID()
+                .equals(allele.getUID());
     }
 
     @Override
     public IAllele getPartner(IAllele allele) {
-        if(allele.getUID().equals(mom.getUID()))
-            return dad;
+        if (allele.getUID()
+            .equals(mom.getUID())) return dad;
         return mom;
     }
 
@@ -118,16 +112,21 @@ public class ExpensiveMutation implements IBeeMutation {
     }
 
     @Override
-    public float getChance(IBeeHousing housing, IAlleleBeeSpecies allele0, IAlleleBeeSpecies allele1, IBeeGenome genome0, IBeeGenome genome1) {
+    public float getChance(IBeeHousing housing, IAlleleBeeSpecies allele0, IAlleleBeeSpecies allele1,
+        IBeeGenome genome0, IBeeGenome genome1) {
         float finalChance = 0f;
         float chance = this.baseChance * 1f;
 
-        if(isPartner(allele0) && isPartner(allele1)){
+        if (isPartner(allele0) && isPartner(allele1)) {
             float housingModifier = 1.0f;
-            for(IBeeModifier modifier : housing.getBeeModifiers()) {
+            for (IBeeModifier modifier : housing.getBeeModifiers()) {
                 housingModifier *= modifier.getMutationModifier(genome0, genome1, chance);
             }
-            finalChance = Math.round(chance * housingModifier * BeeManager.beeRoot.getBeekeepingMode(housing.getWorld()).getBeeModifier().getMutationModifier(genome0, genome1, chance));
+            finalChance = Math.round(
+                chance * housingModifier
+                    * BeeManager.beeRoot.getBeekeepingMode(housing.getWorld())
+                        .getBeeModifier()
+                        .getMutationModifier(genome0, genome1, chance));
         }
 
         return finalChance;

@@ -6,6 +6,7 @@ import net.minecraft.util.IIcon;
 
 public interface ICosmicRenderItem {
 
-	public IIcon getMaskTexture(ItemStack stack, EntityPlayer player);
-	public float getMaskMultiplier(ItemStack stack, EntityPlayer player);
+    public IIcon getMaskTexture(ItemStack stack, EntityPlayer player);
+
+    public float getMaskMultiplier(ItemStack stack, EntityPlayer player);
 }

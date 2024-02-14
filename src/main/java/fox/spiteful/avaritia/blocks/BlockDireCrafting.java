@@ -2,10 +2,6 @@ package fox.spiteful.avaritia.blocks;
 
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fox.spiteful.avaritia.Avaritia;
-import fox.spiteful.avaritia.tile.TileEntityDireCrafting;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -18,11 +14,17 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fox.spiteful.avaritia.Avaritia;
+import fox.spiteful.avaritia.tile.TileEntityDireCrafting;
+
 public class BlockDireCrafting extends BlockContainer {
+
     private static IIcon top, sides, bottom;
     private Random randy = new Random();
 
-    public BlockDireCrafting(){
+    public BlockDireCrafting() {
         super(Material.iron);
         setStepSound(Block.soundTypeGlass);
         setHardness(50.0F);
@@ -34,51 +36,41 @@ public class BlockDireCrafting extends BlockContainer {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void registerBlockIcons (IIconRegister iconRegister)
-    {
+    public void registerBlockIcons(IIconRegister iconRegister) {
         top = iconRegister.registerIcon("avaritia:dire_crafting_top");
         sides = iconRegister.registerIcon("avaritia:dire_crafting_side");
         bottom = iconRegister.registerIcon("avaritia:block_crystal_matrix");
     }
 
     @Override
-    public IIcon getIcon (int side, int metadata)
-    {
-        if (side == 0)
-            return bottom;
-        if (side == 1)
-            return top;
+    public IIcon getIcon(int side, int metadata) {
+        if (side == 0) return bottom;
+        if (side == 1) return top;
         return sides;
     }
 
     @Override
-    public boolean onBlockActivated (World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
-    {
-        if (world.isRemote)
-        {
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7,
+        float par8, float par9) {
+        if (world.isRemote) {
             return true;
-        }
-        else
-        {
+        } else {
             player.openGui(Avaritia.instance, 1, world, x, y, z);
             return true;
         }
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world, int meta)
-    {
+    public TileEntity createNewTileEntity(World world, int meta) {
         return new TileEntityDireCrafting();
     }
 
     @Override
-    public void breakBlock(World world, int x, int y, int z, Block block, int wut)
-    {
-        TileEntityDireCrafting craft = (TileEntityDireCrafting)world.getTileEntity(x, y, z);
+    public void breakBlock(World world, int x, int y, int z, Block block, int wut) {
+        TileEntityDireCrafting craft = (TileEntityDireCrafting) world.getTileEntity(x, y, z);
 
-        if (craft != null)
-        {
-            for(int i = 1;i < 82;i++) {
+        if (craft != null) {
+            for (int i = 1; i < 82; i++) {
                 ItemStack itemstack = craft.getStackInSlot(i);
 
                 if (itemstack != null) {
@@ -94,10 +86,18 @@ public class BlockDireCrafting extends BlockContainer {
                         }
 
                         itemstack.stackSize -= j1;
-                        EntityItem entityitem = new EntityItem(world, (double) ((float) x + f), (double) ((float) y + f1), (double) ((float) z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+                        EntityItem entityitem = new EntityItem(
+                            world,
+                            (double) ((float) x + f),
+                            (double) ((float) y + f1),
+                            (double) ((float) z + f2),
+                            new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
                         if (itemstack.hasTagCompound()) {
-                            entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+                            entityitem.getEntityItem()
+                                .setTagCompound(
+                                    (NBTTagCompound) itemstack.getTagCompound()
+                                        .copy());
                         }
 
                         float f3 = 0.05F;

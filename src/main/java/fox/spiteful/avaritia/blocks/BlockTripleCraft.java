@@ -1,14 +1,15 @@
 package fox.spiteful.avaritia.blocks;
 
-import fox.spiteful.avaritia.Avaritia;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
+import fox.spiteful.avaritia.Avaritia;
+
 public class BlockTripleCraft extends Block {
 
-    public BlockTripleCraft(){
+    public BlockTripleCraft() {
         super(Material.wood);
         setHardness(8.0F);
         setBlockName("very_compressed_workbench");
@@ -19,14 +20,11 @@ public class BlockTripleCraft extends Block {
     }
 
     @Override
-    public boolean onBlockActivated (World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
-    {
-        if (world.isRemote)
-        {
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7,
+        float par8, float par9) {
+        if (world.isRemote) {
             return true;
-        }
-        else
-        {
+        } else {
             player.openGui(Avaritia.instance, 0, world, x, y, z);
             return true;
         }

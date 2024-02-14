@@ -1,5 +1,9 @@
 package fox.spiteful.avaritia;
 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -18,63 +22,61 @@ import fox.spiteful.avaritia.entity.LudicrousEntities;
 import fox.spiteful.avaritia.gui.GooeyHandler;
 import fox.spiteful.avaritia.items.ItemFracturedOre;
 import fox.spiteful.avaritia.items.LudicrousItems;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
 
-@Mod(modid = "Avaritia", name = "Avaritia", dependencies = "after:Thaumcraft;after:AWWayofTime;after:Botania", version = Tags.VERSION)
+@Mod(
+    modid = "Avaritia",
+    name = "Avaritia",
+    dependencies = "after:Thaumcraft;after:AWWayofTime;after:Botania",
+    version = Tags.VERSION)
 public class Avaritia {
+
     @Instance
     public static Avaritia instance;
 
     @SidedProxy(serverSide = "fox.spiteful.avaritia.CommonProxy", clientSide = "fox.spiteful.avaritia.ClientProxy")
     public static CommonProxy proxy;
 
-    public static CreativeTabs tab = new CreativeTabs("avaritia"){
+    public static CreativeTabs tab = new CreativeTabs("avaritia") {
+
         @Override
-        public Item getTabIconItem(){
+        public Item getTabIconItem() {
             return LudicrousItems.resource;
         }
 
         @Override
-        public int func_151243_f()
-        {
+        public int func_151243_f() {
             return 5;
         }
     };
 
     @EventHandler
-    public void earlyGame(FMLPreInitializationEvent event){
+    public void earlyGame(FMLPreInitializationEvent event) {
         instance = this;
         Config.configurate(event.getSuggestedConfigurationFile());
         LudicrousItems.grind();
         LudicrousBlocks.voxelize();
         Compat.census();
-        if(Config.craftingOnly)
-            return;
+        if (Config.craftingOnly) return;
 
         LudicrousEntities.letLooseTheDogsOfWar();
         proxy.prepareForPretty();
     }
 
     @EventHandler
-    public void midGame(FMLInitializationEvent event){
+    public void midGame(FMLInitializationEvent event) {
         Grinder.artsAndCrafts();
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GooeyHandler());
-        if(Config.craftingOnly)
-            return;
+        if (Config.craftingOnly) return;
         proxy.makeThingsPretty();
         MinecraftForge.EVENT_BUS.register(new LudicrousEvents());
-        if(Config.fractured)
-            ItemFracturedOre.brushUpUncomfortablyAgainstTheOreDictionary();
+        if (Config.fractured) ItemFracturedOre.brushUpUncomfortablyAgainstTheOreDictionary();
     }
 
     @EventHandler
-    public void endGame(FMLPostInitializationEvent event){
+    public void endGame(FMLPostInitializationEvent event) {
         Compat.compatify();
         Gregorizer.balance();
-        if(Config.craftingOnly)
-            return;
+        if (Config.craftingOnly) return;
         Mincer.countThoseCalories();
         Grinder.lastMinuteChanges();
         Achievements.achieve();

@@ -2,9 +2,6 @@ package fox.spiteful.avaritia.blocks;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import fox.spiteful.avaritia.Avaritia;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -15,12 +12,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import fox.spiteful.avaritia.Avaritia;
+
 public class BlockResource extends Block {
 
-    public static final String[] types = new String[]{"neutronium", "infinity"};
+    public static final String[] types = new String[] { "neutronium", "infinity" };
     private IIcon[] icons;
 
-    public BlockResource(){
+    public BlockResource() {
         super(Material.iron);
         setStepSound(Block.soundTypeMetal);
         setHardness(50.0F);
@@ -31,40 +32,36 @@ public class BlockResource extends Block {
     }
 
     @Override
-    public IIcon getIcon(int side, int metadata)
-    {
+    public IIcon getIcon(int side, int metadata) {
         return this.icons[metadata % types.length];
     }
 
     @Override
-    public int damageDropped(int metadata)
-    {
+    public int damageDropped(int metadata) {
         return metadata;
     }
 
     @Override
-    public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list){
-        for(int x = 0;x < types.length;x++)
-            list.add(new ItemStack(item, 1, x));
+    public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
+        for (int x = 0; x < types.length; x++) list.add(new ItemStack(item, 1, x));
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister){
+    public void registerBlockIcons(IIconRegister iconRegister) {
         this.icons = new IIcon[types.length];
-        for (int i = 0; i < this.icons.length; ++i)
-        {
+        for (int i = 0; i < this.icons.length; ++i) {
             this.icons[i] = iconRegister.registerIcon("avaritia:block_" + types[i]);
         }
     }
 
     @Override
-    public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ){
+    public boolean isBeaconBase(IBlockAccess worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ) {
         return true;
     }
 
     @Override
-    public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity){
+    public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity) {
         return false;
     }
 }

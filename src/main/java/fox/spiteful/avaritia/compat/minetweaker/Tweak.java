@@ -5,10 +5,9 @@ import minetweaker.MineTweakerAPI;
 
 public class Tweak {
 
-    public static void registrate(){
+    public static void registrate() {
         MineTweakerAPI.registerClass(ExtremeCrafting.class);
-        if(Config.craftingOnly)
-            return;
+        if (Config.craftingOnly) return;
 
         MineTweakerAPI.registerClass(Compressor.class);
     }

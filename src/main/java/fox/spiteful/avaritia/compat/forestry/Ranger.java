@@ -4,6 +4,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraft.init.Items;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.common.util.EnumHelper;
+
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import forestry.api.recipes.RecipeManagers;
@@ -11,12 +18,6 @@ import fox.spiteful.avaritia.Config;
 import fox.spiteful.avaritia.compat.Compat;
 import fox.spiteful.avaritia.crafting.Grinder;
 import fox.spiteful.avaritia.items.LudicrousItems;
-import net.minecraft.init.Items;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.common.util.EnumHelper;
 
 public class Ranger {
 
@@ -38,8 +39,7 @@ public class Ranger {
         honeydew = Compat.getItem("Forestry", "honeydew");
         Item panel = Compat.getItem("Forestry", "craftingMaterial");
 
-        if(!Config.bees)
-            return;
+        if (!Config.bees) return;
 
         LudicrousItems.combs = new ItemComb();
         GameRegistry.registerItem(LudicrousItems.combs, "Combs");
@@ -49,7 +49,7 @@ public class Ranger {
         Allele.prepareGenes();
         GreedyBeeSpecies.buzz();
         ExpensiveMutation.mutate();
-        
+
         final float centrifugeChanceA = 0.16f;
         final Map<ItemStack, Float> products = new HashMap<>();
         products.put(new ItemStack(Items.dye, 1, 1), centrifugeChanceA);
@@ -61,10 +61,15 @@ public class Ranger {
 
         RecipeManagers.centrifugeManager.addRecipe(20, new ItemStack(LudicrousItems.combs, 1, 1), products);
 
-        RecipeManagers.centrifugeManager.addRecipe(20, new ItemStack(LudicrousItems.combs, 1, 0), Collections.singletonMap(new ItemStack(LudicrousItems.beesource, 1, 1), 1.0f));
+        RecipeManagers.centrifugeManager.addRecipe(
+            20,
+            new ItemStack(LudicrousItems.combs, 1, 0),
+            Collections.singletonMap(new ItemStack(LudicrousItems.beesource, 1, 1), 1.0f));
 
-        Grinder.catalyst.getInput().add(new ItemStack(panel, 1, 6));
-        Grinder.catalyst.getInput().add(new ItemStack(LudicrousItems.beesource, 1, 0));
+        Grinder.catalyst.getInput()
+            .add(new ItemStack(panel, 1, 6));
+        Grinder.catalyst.getInput()
+            .add(new ItemStack(LudicrousItems.beesource, 1, 0));
     }
 
 }

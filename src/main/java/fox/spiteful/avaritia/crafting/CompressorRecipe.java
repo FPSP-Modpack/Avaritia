@@ -9,37 +9,35 @@ public class CompressorRecipe {
     private ItemStack input;
     private boolean specific;
 
-    public CompressorRecipe(ItemStack output, int amount, ItemStack ingredient, boolean exact){
+    public CompressorRecipe(ItemStack output, int amount, ItemStack ingredient, boolean exact) {
         product = output;
         cost = amount;
         input = ingredient;
         specific = exact;
     }
 
-    public CompressorRecipe(ItemStack output, int amount, ItemStack ingredient){
+    public CompressorRecipe(ItemStack output, int amount, ItemStack ingredient) {
         this(output, amount, ingredient, false);
     }
 
-    public ItemStack getOutput(){
+    public ItemStack getOutput() {
         return product.copy();
     }
 
-    public int getCost(){
-        if(specific)
-            return cost;
-        else
-            return Gregorizer.balanceCost(cost);
+    public int getCost() {
+        if (specific) return cost;
+        else return Gregorizer.balanceCost(cost);
     }
 
-    public boolean validInput(ItemStack ingredient){
+    public boolean validInput(ItemStack ingredient) {
         return ingredient.isItemEqual(input);
     }
 
-    public String getIngredientName(){
+    public String getIngredientName() {
         return input.getDisplayName();
     }
 
-    public Object getIngredient(){
+    public Object getIngredient() {
         return input;
     }
 

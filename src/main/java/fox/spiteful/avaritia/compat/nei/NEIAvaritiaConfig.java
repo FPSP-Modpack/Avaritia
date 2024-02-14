@@ -1,12 +1,13 @@
 package fox.spiteful.avaritia.compat.nei;
 
+import net.minecraft.item.ItemStack;
+
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import fox.spiteful.avaritia.Tags;
 import fox.spiteful.avaritia.compat.Compat;
 import fox.spiteful.avaritia.compat.botania.ItemInfinitatoCostume;
 import fox.spiteful.avaritia.compat.botania.Tsundere;
-import net.minecraft.item.ItemStack;
 
 public class NEIAvaritiaConfig implements IConfigureNEI {
 
