@@ -1,7 +1,6 @@
 package fox.spiteful.avaritia.gui;
 
 import cpw.mods.fml.common.network.IGuiHandler;
-import fox.spiteful.avaritia.tile.TileEntityAutoDireCrafting;
 import fox.spiteful.avaritia.tile.TileEntityCompressor;
 import fox.spiteful.avaritia.tile.TileEntityDireCrafting;
 import fox.spiteful.avaritia.tile.TileEntityNeutron;
@@ -21,8 +20,6 @@ public class GooeyHandler implements IGuiHandler {
             return new GUINeutron(player.inventory, (TileEntityNeutron)world.getTileEntity(x, y, z));
         else if(ID == 3)
             return new GUICompressor(player.inventory, (TileEntityCompressor)world.getTileEntity(x, y, z));
-        else if(ID == 4)
-        	return new GUIAutoExtremeCrafting(player.inventory, world, x, y, z, (TileEntityAutoDireCrafting) world.getTileEntity(x, y, z));
         return null;
     }
 
@@ -36,8 +33,6 @@ public class GooeyHandler implements IGuiHandler {
             return new ContainerNeutron(player.inventory, (TileEntityNeutron)world.getTileEntity(x, y, z));
         else if(ID == 3)
             return new ContainerCompressor(player.inventory, (TileEntityCompressor)world.getTileEntity(x, y, z));
-        else if(ID == 4)
-            return new ContainerAutoExtremeCrafting(player.inventory, world, x, y, z, (TileEntityAutoDireCrafting)world.getTileEntity(x, y, z));
         return null;
     }
 }

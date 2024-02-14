@@ -43,9 +43,6 @@ public class Tsundere {
         SubTileCheaty.lexicon = new LudicrousLexicon("asgardandelion", BotaniaAPI.categoryGenerationFlowers);
         SubTileCheaty.lexicon.addPage(BotaniaAPI.internalHandler.textPage("avaritia.lexicon.asgardandelion.0"));
         SubTileCheaty.lexicon.setIcon(cheaty);
-        
-        //if(Config.alfheim)
-        	//Alfheim.vacationTime();
 
         ExtremeCraftingManager.getInstance().addRecipe(cheaty, new Object[]{
                 "   III   ",

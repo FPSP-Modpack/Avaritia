@@ -58,7 +58,6 @@ tile.block_neutronium.name=Neutronenblock
 tile.block_infinity.name=Unendlichkeitsblock
 tile.block_gaia.name=Gaia Block
 tile.dire_crafting.name=Schreckliche Werkbank
-tile.auto_dire_crafting.name=Schreckliche Werkbank MK 20
 tile.neutron_collector.name=Neutronenkollektor
 tile.neutronium_compressor.name=NeutronenKompressor
 tile.infinitato.name=Unendlichkeitstoffel

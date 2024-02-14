@@ -55,7 +55,6 @@ tile.block_neutronium.name=Neutronium Block
 tile.block_infinity.name=Infinity Block
 tile.block_gaia.name=Gaia Block
 tile.dire_crafting.name=Dire Crafting Table
-tile.auto_dire_crafting.name=Dire Crafting Table Mk XX
 tile.neutron_collector.name=Neutron Collector
 tile.neutronium_compressor.name=Neutronium Compressor
 tile.infinitato.name=Infinitato
