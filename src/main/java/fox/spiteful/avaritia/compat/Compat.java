@@ -62,6 +62,10 @@ public class Compat {
         forestry = Loader.isModLoaded("Forestry") && Config.forestry;
         te = Loader.isModLoaded("ThermalExpansion") && Config.te;
         hp = Loader.isModLoaded("hodgepodge");
+        
+        if(thaumic) {
+            Lucrum.initTermination();
+        }
     }
 
     public static void compatify() {

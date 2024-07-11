@@ -7,6 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
 
 import org.apache.logging.log4j.Level;
+import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -31,15 +32,17 @@ public class Lucrum {
     public static Aspect ULTRA_DEATH;
     public static WandRod WAND_ROD_NEUTRONIUM;
     public static WandCap WAND_CAP_CRYSTAL;
+    
+    public static void initTermination() {
+        ULTRA_DEATH = new Aspect(
+                "terminus",
+                0xb90000,
+                new Aspect[] { Aspect.GREED, Aspect.ELDRITCH },
+                new ResourceLocation("avaritia", "textures/misc/terminus.png"),
+                GL11.GL_ONE_MINUS_SRC_ALPHA);
+    }
 
     public static void abracadabra() throws Compat.ItemNotFoundException {
-        ULTRA_DEATH = new Aspect(
-            "terminus",
-            0xb90000,
-            new Aspect[] { Aspect.GREED, Aspect.ELDRITCH },
-            new ResourceLocation("avaritia", "textures/misc/terminus.png"),
-            771);
-
         LudicrousItems.akashic_record = new ItemAkashicRecord();
         GameRegistry.registerItem(LudicrousItems.akashic_record, "Akashic_Record");
         LudicrousItems.bigPearl = new ItemBigPearl();
